@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — Family Technical Officer</title>
+  <meta name="description" content="Home technology tips, insights, and guides from Kevin Christian — Family Technical Officer." />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gold: #C9A84C;
+      --gold-light: #E5C97A;
+      --gold-dim: #8a6f32;
+      --black: #0A0A0A;
+      --black-soft: #111111;
+      --black-card: #161616;
+      --black-border: #242424;
+      --white: #F5F0E8;
+      --white-dim: #9A948A;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Jost', sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--black); color: var(--white); font-family: var(--sans); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 4%;
+      background: rgba(10,10,10,0.98);
+      border-bottom: 1px solid var(--black-border);
+      backdrop-filter: blur(8px);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .nav-logo img { height: 54px; width: auto; mix-blend-mode: lighten; }
+    .nav-logo-text { display: flex; flex-direction: column; }
+    .nav-logo-text strong { font-family: var(--serif); font-size: 1.35rem; font-weight: 600; color: var(--gold); line-height: 1; }
+    .nav-logo-text span { font-size: 0.72rem; letter-spacing: 0.17em; text-transform: uppercase; color: var(--white-dim); font-family: var(--sans); font-weight: 300; }
+    .nav-links { display: flex; gap: 1.8rem; list-style: none; align-items: center; }
+    .nav-links a { color: var(--white-dim); text-decoration: none; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .nav-right { display: flex; align-items: center; gap: 1.5rem; }
+    .nav-contact { display: flex; flex-direction: column; align-items: flex-end; gap: 0.12rem; }
+    .nav-contact a { color: var(--gold); text-decoration: none; font-size: 0.8rem; font-weight: 500; transition: color 0.2s; }
+    .nav-contact a.nav-email { font-size: 0.64rem; color: var(--white-dim); font-weight: 300; }
+    .nav-cta { background: transparent; border: 1px solid var(--gold-dim); color: var(--gold); padding: 0.48rem 1.1rem; font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.13em; text-transform: uppercase; text-decoration: none; transition: background 0.2s, color 0.2s; white-space: nowrap; }
+    .nav-cta:hover { background: var(--gold); color: var(--black); }
+
+    .blog-header {
+      padding: 9rem 4% 4rem;
+      border-bottom: 1px solid var(--black-border);
+    }
+    .blog-label { font-size: 0.62rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 1rem; }
+    .blog-title { font-family: var(--serif); font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 300; line-height: 1.05; }
+    .blog-title em { font-style: italic; color: var(--gold); }
+    .blog-sub { color: var(--white-dim); font-size: 0.95rem; margin-top: 1rem; max-width: 55ch; }
+
+    .blog-grid {
+      padding: 4rem 4%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .blog-card {
+      background: var(--black-card);
+      border: 1px solid var(--black-border);
+      text-decoration: none;
+      display: block;
+      transition: border-color 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .blog-card:hover { border-color: var(--gold-dim); }
+    .blog-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(to right, var(--gold), transparent);
+      transform: scaleX(0); transform-origin: left; transition: transform 0.4s;
+    }
+    .blog-card:hover::before { transform: scaleX(1); }
+
+    .blog-card-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      border-bottom: 1px solid var(--black-border);
+    }
+
+    .blog-card-body { padding: 1.8rem; }
+    .blog-card-label { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 0.7rem; }
+    .blog-card-title { font-family: var(--serif); font-size: 1.4rem; font-weight: 300; color: var(--white); line-height: 1.2; margin-bottom: 0.8rem; }
+    .blog-card-excerpt { font-size: 0.83rem; color: var(--white-dim); line-height: 1.7; margin-bottom: 1.2rem; }
+    .blog-card-meta { font-size: 0.68rem; letter-spacing: 0.08em; color: var(--white-dim); opacity: 0.5; }
+    .blog-card-read { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-top: 1rem; display: block; }
+
+    footer { border-top: 1px solid var(--black-border); padding: 2.2rem 4%; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.4rem; }
+    .footer-logo { display: flex; align-items: center; gap: 0.65rem; }
+    .footer-logo img { height: 34px; width: auto; mix-blend-mode: lighten; }
+    .footer-logo span { font-family: var(--serif); font-size: 0.9rem; color: var(--gold); font-weight: 600; }
+    .footer-copy { font-size: 0.66rem; color: var(--white-dim); opacity: 0.4; }
+
+    @media (max-width: 900px) { .blog-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .blog-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">
+    <img src="../images/background.jpeg" alt="FTO" />
+    <div class="nav-logo-text">
+      <strong>Family Technical Officer</strong>
+      <span>Home Tech Solutions</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html#technology">Services</a></li>
+    <li><a href="../index.html#serve">Who We Serve</a></li>
+    <li><a href="../index.html#about">About</a></li>
+    <li><a href="index.html" class="active">Blog</a></li>
+    <li><a href="../index.html#partners">Partners</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="nav-contact">
+      <a href="tel:+12086402341">208.640.2341</a>
+      <a href="../index.html#contact" class="nav-email">Contact Form</a>
+    </div>
+    <a href="../index.html#contact" class="nav-cta">Free Consult</a>
+  </div>
+</nav>
+
+<div class="blog-header">
+  <p class="blog-label">FTO Blog</p>
+  <h1 class="blog-title">Home Technology,<br><em>Explained.</em></h1>
+  <p class="blog-sub">Tips, insights, and real-world guides on home networking, smart home automation, and making technology work for your life.</p>
+</div>
+
+<div class="blog-grid">
+  <a href="wifi-aesthetics.html" class="blog-card">
+    <img src="images/ceiling-ap.png" alt="Wi-Fi access point in ceiling" class="blog-card-img" />
+    <div class="blog-card-body">
+      <p class="blog-card-label">Home Networking · Design</p>
+      <h2 class="blog-card-title">Wi-Fi That Disappears Into Your Home</h2>
+      <p class="blog-card-excerpt">Professional access points can be virtually invisible — ceiling mounts, painted wall units, and flush panels that blend into any luxury home.</p>
+      <p class="blog-card-meta">Kevin Christian &nbsp;·&nbsp; March 2026</p>
+      <span class="blog-card-read">Read Article →</span>
+    </div>
+  </a>
+</div>
+
+<footer>
+  <div class="footer-logo">
+    <img src="../images/background.jpeg" alt="FTO" />
+    <span>Family Technical Officer</span>
+  </div>
+  <p class="footer-copy">© 2025 Family Technical Officer · Post Falls, Idaho</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Dark background -->
+  <rect width="64" height="64" rx="12" fill="#0A0A0A"/>
+  <!-- Gold border -->
+  <rect width="64" height="64" rx="12" fill="none" stroke="#C9A84C" stroke-width="2"/>
+  <!-- Chip body -->
+  <rect x="18" y="18" width="28" height="28" rx="4" fill="#C9A84C"/>
+  <rect x="20" y="20" width="24" height="24" rx="3" fill="#0A0A0A"/>
+  <!-- FTO text -->
+  <text x="32" y="36" font-family="Georgia, serif" font-size="11" font-weight="bold" 
+        fill="#C9A84C" text-anchor="middle">FTO</text>
+  <!-- Circuit lines - top -->
+  <line x1="26" y1="18" x2="26" y2="10" stroke="#C9A84C" stroke-width="1.5"/>
+  <line x1="32" y1="18" x2="32" y2="10" stroke="#C9A84C" stroke-width="1.5"/>
+  <line x1="38" y1="18" x2="38" y2="10" stroke="#C9A84C" stroke-width="1.5"/>
+  <!-- Circuit lines - bottom -->
+  <line x1="26" y1="46" x2="26" y2="54" stroke="#C9A84C" stroke-width="1.5"/>
+  <line x1="32" y1="46" x2="32" y2="54" stroke="#C9A84C" stroke-width="1.5"/>
+  <line x1="38" y1="46" x2="38" y2="54" stroke="#C9A84C" stroke-width="1.5"/>
+  <!-- Circuit lines - left -->
+  <line x1="18" y1="26" x2="10" y2="26" stroke="#C9A84C" stroke-width="1.5"/>
+  <line x1="18" y1="32" x2="10" y2="32" stroke="#C9A84C" stroke-width="1.5"/>
+  <line x1="18" y1="38" x2="10" y2="38" stroke="#C9A84C" stroke-width="1.5"/>
+  <!-- Circuit lines - right -->
+  <line x1="46" y1="26" x2="54" y2="26" stroke="#C9A84C" stroke-width="1.5"/>
+  <line x1="46" y1="32" x2="54" y2="32" stroke="#C9A84C" stroke-width="1.5"/>
+  <line x1="46" y1="38" x2="54" y2="38" stroke="#C9A84C" stroke-width="1.5"/>
+  <!-- Dots at ends -->
+  <circle cx="26" cy="9" r="2" fill="#C9A84C"/>
+  <circle cx="32" cy="9" r="2" fill="#C9A84C"/>
+  <circle cx="38" cy="9" r="2" fill="#C9A84C"/>
+  <circle cx="26" cy="55" r="2" fill="#C9A84C"/>
+  <circle cx="32" cy="55" r="2" fill="#C9A84C"/>
+  <circle cx="38" cy="55" r="2" fill="#C9A84C"/>
+  <circle cx="9" cy="26" r="2" fill="#C9A84C"/>
+  <circle cx="9" cy="32" r="2" fill="#C9A84C"/>
+  <circle cx="9" cy="38" r="2" fill="#C9A84C"/>
+  <circle cx="55" cy="26" r="2" fill="#C9A84C"/>
+  <circle cx="55" cy="32" r="2" fill="#C9A84C"/>
+  <circle cx="55" cy="38" r="2" fill="#C9A84C"/>
+</svg>
