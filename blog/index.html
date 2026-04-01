@@ -3,16 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Family Technical Officer — Home Tech Solutions · Post Falls, Coeur d'Alene &amp; Spokane</title>
-  <meta name="description" content="Family Technical Officer — Expert home technology design, setup, and automation in Post Falls, Coeur d'Alene, and Spokane. Wi-Fi, smart home, security, and more. Backed by 25 years of Microsoft engineering experience." />
-  <meta name="keywords" content="home automation, smart home, wifi setup, home networking, Post Falls, Coeur d'Alene, Spokane, North Idaho, home technology, smart devices, Kevin Christian" />
-  <meta name="author" content="Kevin Christian, Family Technical Officer" />
-  <meta property="og:title" content="Family Technical Officer — Home Tech Solutions" />
-  <meta property="og:description" content="Your personal technology expert — for your home. Expert setup, programming, and support in Post Falls, Coeur d'Alene, and Spokane." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://familytechnicalofficer.com" />
-  <link rel="canonical" href="https://familytechnicalofficer.com" />
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <title>Blog — Family Technical Officer</title>
+  <meta name="description" content="Home technology tips, insights, and guides from Kevin Christian — Family Technical Officer." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -31,26 +24,8 @@
       --sans: 'Jost', sans-serif;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--black);
-      color: var(--white);
-      font-family: var(--sans);
-      font-weight: 300;
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
-    body::before {
-      content: '';
-      position: fixed; inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-      opacity: 0.03; pointer-events: none; z-index: 999;
-    }
+    body { background: var(--black); color: var(--white); font-family: var(--sans); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
 
-    /* circuit logo blend - makes black bg disappear on dark sections */
-    .circuit-logo { mix-blend-mode: lighten; }
-
-    /* ── NAV ── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
@@ -60,744 +35,130 @@
       backdrop-filter: blur(8px);
     }
     .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
-    .nav-logo img { height: 54px; width: auto; }
+    .nav-logo img { height: 54px; width: auto; mix-blend-mode: lighten; }
     .nav-logo-text { display: flex; flex-direction: column; }
-    .nav-logo-text strong {
-      font-family: var(--serif); font-size: 1.35rem; font-weight: 600;
-      color: var(--gold); line-height: 1; letter-spacing: 0.03em;
-    }
-    .nav-logo-text span {
-      font-size: 0.72rem; letter-spacing: 0.17em; text-transform: uppercase;
-      color: var(--white-dim); font-family: var(--sans); font-weight: 300;
-    }
+    .nav-logo-text strong { font-family: var(--serif); font-size: 1.35rem; font-weight: 600; color: var(--gold); line-height: 1; }
+    .nav-logo-text span { font-size: 0.72rem; letter-spacing: 0.17em; text-transform: uppercase; color: var(--white-dim); font-family: var(--sans); font-weight: 300; }
     .nav-links { display: flex; gap: 1.8rem; list-style: none; align-items: center; }
-    .nav-links a {
-      color: var(--white-dim); text-decoration: none;
-      font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--gold); }
+    .nav-links a { color: var(--white-dim); text-decoration: none; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
     .nav-right { display: flex; align-items: center; gap: 1.5rem; }
     .nav-contact { display: flex; flex-direction: column; align-items: flex-end; gap: 0.12rem; }
-    .nav-contact a {
-      color: var(--gold); text-decoration: none;
-      font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em;
-      transition: color 0.2s; line-height: 1.3;
-    }
-    .nav-contact a:hover { color: var(--gold-light); }
-    .nav-contact a.nav-email {
-      font-size: 0.64rem; color: var(--white-dim); font-weight: 300; letter-spacing: 0.05em;
-    }
-    .nav-contact a.nav-email:hover { color: var(--gold); }
-    .nav-cta {
-      background: transparent; border: 1px solid var(--gold-dim); color: var(--gold);
-      padding: 0.48rem 1.1rem; font-family: var(--sans); font-size: 0.68rem;
-      letter-spacing: 0.13em; text-transform: uppercase; cursor: pointer;
-      text-decoration: none; transition: background 0.2s, color 0.2s, border-color 0.2s; white-space: nowrap;
-    }
-    .nav-cta:hover { background: var(--gold); color: var(--black); border-color: var(--gold); }
-    .nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-    .nav-burger span { display: block; width: 22px; height: 1px; background: var(--white); }
-    .nav-mobile-contact { display: none; flex-direction: column; align-items: flex-end; gap: 0.1rem; margin-right: 0.4rem; }
-    .nav-mobile-contact a { color: var(--gold); text-decoration: none; font-size: 0.78rem; font-weight: 500; }
-    .nav-mobile-contact a.em { font-size: 0.6rem; color: var(--white-dim); }
+    .nav-contact a { color: var(--gold); text-decoration: none; font-size: 0.8rem; font-weight: 500; transition: color 0.2s; }
+    .nav-contact a.nav-email { font-size: 0.64rem; color: var(--white-dim); font-weight: 300; }
+    .nav-cta { background: transparent; border: 1px solid var(--gold-dim); color: var(--gold); padding: 0.48rem 1.1rem; font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.13em; text-transform: uppercase; text-decoration: none; transition: background 0.2s, color 0.2s; white-space: nowrap; }
+    .nav-cta:hover { background: var(--gold); color: var(--black); }
 
-    /* ── HERO ── */
-    #hero {
-      min-height: 100svh;
-      display: grid; grid-template-columns: 1fr 1fr;
-      align-items: center; padding: 9rem 4% 6rem; gap: 4rem;
-      position: relative; overflow: hidden;
+    .blog-header {
+      padding: 9rem 4% 4rem;
+      border-bottom: 1px solid var(--black-border);
     }
-    .hero-bg-lines {
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(to right, rgba(201,168,76,0.03) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(201,168,76,0.03) 1px, transparent 1px);
-      background-size: 72px 72px; pointer-events: none;
-    }
-    .hero-content { position: relative; z-index: 1; }
+    .blog-label { font-size: 0.62rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 1rem; }
+    .blog-title { font-family: var(--serif); font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 300; line-height: 1.05; }
+    .blog-title em { font-style: italic; color: var(--gold); }
+    .blog-sub { color: var(--white-dim); font-size: 0.95rem; margin-top: 1rem; max-width: 55ch; }
 
-    .hero-location {
-      font-size: 1rem; letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 1.6rem; font-weight: 400;
-      opacity: 0; animation: fadeUp 0.8s 0.1s forwards;
+    .blog-grid {
+      padding: 4rem 4%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
     }
 
-    .hero-headline {
-      font-family: var(--serif); font-size: clamp(2.8rem, 5.5vw, 5.8rem);
-      font-weight: 300; line-height: 1.04;
-      opacity: 0; animation: fadeUp 0.8s 0.3s forwards;
-    }
-    .hero-headline em { font-style: italic; color: var(--gold); }
-
-    .hero-sub {
-      max-width: 50ch; margin-top: 1.6rem;
-      color: var(--white-dim); font-size: 0.97rem; line-height: 1.8;
-      opacity: 0; animation: fadeUp 0.8s 0.5s forwards;
-    }
-
-    .hero-actions {
-      display: flex; gap: 1rem; margin-top: 2.4rem; flex-wrap: wrap;
-      opacity: 0; animation: fadeUp 0.8s 0.7s forwards;
-    }
-
-    .hero-services-list {
-      margin-top: 1.4rem;
-      opacity: 0; animation: fadeUp 0.8s 0.9s forwards;
-      display: flex; flex-wrap: wrap; gap: 0.5rem 1.2rem;
-    }
-    .hero-services-list span {
-      font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--white-dim); display: flex; align-items: center; gap: 0.4rem;
-    }
-    .hero-services-list span::before {
-      content: ''; width: 4px; height: 4px; background: var(--gold);
-      display: block; flex-shrink: 0;
-    }
-
-    .hero-logo-wrap {
-      position: relative; z-index: 1;
-      display: flex; justify-content: center; align-items: center;
-      opacity: 0; animation: fadeIn 1.4s 0.5s forwards;
-    }
-    .hero-logo-wrap img {
-      width: min(460px, 90%); height: auto;
-      filter: drop-shadow(0 0 60px rgba(201,168,76,0.2));
-      mix-blend-mode: lighten;
-    }
-    .hero-logo-glow {
-      position: absolute; width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    /* ── BUTTONS ── */
-    .btn-primary {
-      background: var(--gold); color: var(--black); border: none;
-      padding: 0.9rem 2.1rem; font-family: var(--sans); font-size: 0.76rem;
-      font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
-      cursor: pointer; text-decoration: none;
-      transition: background 0.2s, transform 0.15s; display: inline-block;
-    }
-    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
-    .btn-ghost {
-      background: transparent; color: var(--white-dim); border: 1px solid var(--black-border);
-      padding: 0.9rem 2.1rem; font-family: var(--sans); font-size: 0.76rem;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      cursor: pointer; text-decoration: none;
-      transition: border-color 0.2s, color 0.2s; display: inline-block;
-    }
-    .btn-ghost:hover { border-color: var(--gold-dim); color: var(--gold); }
-
-    /* ── SHARED ── */
-    section { padding: 6rem 4%; }
-    .section-label { font-size: 0.62rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 0.85rem; }
-    .section-title { font-family: var(--serif); font-size: clamp(1.85rem, 3.2vw, 3rem); font-weight: 300; line-height: 1.1; }
-    .section-title em { font-style: italic; color: var(--gold); }
-    .gold-rule { width: 44px; height: 1px; background: var(--gold); margin: 1.6rem 0; }
-
-    /* ── FTO CONCEPT ── */
-    #fto-concept {
-      background: var(--black-soft);
-      border-top: 1px solid var(--black-border); border-bottom: 1px solid var(--black-border);
-    }
-    .concept-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
-    .concept-headline {
-      font-family: var(--serif); font-size: clamp(1.6rem, 2.8vw, 2.6rem);
-      font-weight: 300; line-height: 1.2; margin-bottom: 1.8rem;
-    }
-    .concept-headline em { font-style: italic; color: var(--gold); }
-    .concept-headline strong { font-weight: 600; color: var(--gold); }
-    .concept-text p { color: var(--white-dim); font-size: 0.95rem; line-height: 1.85; margin-bottom: 1rem; }
-    .concept-text p strong { color: var(--white); font-weight: 500; }
-    .concept-titles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-    .title-card {
-      background: var(--black-card); border: 1px solid var(--black-border);
-      padding: 1.6rem 1.4rem; text-align: center;
-    }
-    .title-card .abbr { font-family: var(--serif); font-size: 2rem; font-weight: 300; color: var(--white-dim); line-height: 1; }
-    .title-card.fto .abbr { color: var(--gold); }
-    .title-card .full { font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white-dim); margin-top: 0.5rem; opacity: 0.6; }
-    .title-card.fto { border-color: var(--gold-dim); }
-    .title-card.fto .full { color: var(--gold); opacity: 1; }
-    .concept-tagline {
-      margin-top: 2px; padding: 1.2rem 1.5rem;
-      background: rgba(201,168,76,0.06); border: 1px solid var(--gold-dim);
-      font-size: 0.82rem; color: var(--white-dim); text-align: center; line-height: 1.6;
-    }
-    .concept-tagline strong { color: var(--gold); font-weight: 500; }
-
-    /* ── HOME TECHNOLOGY ── */
-    #technology { border-top: 1px solid var(--black-border); }
-    .tech-header { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; margin-bottom: 3.5rem; }
-    .tech-intro { color: var(--white-dim); font-size: 0.95rem; line-height: 1.85; }
-    .tech-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-    .tech-card {
-      background: var(--black-card); border: 1px solid var(--black-border);
-      padding: 2.2rem 1.8rem; position: relative; overflow: hidden;
+    .blog-card {
+      background: var(--black-card);
+      border: 1px solid var(--black-border);
+      text-decoration: none;
+      display: block;
       transition: border-color 0.3s;
+      position: relative;
+      overflow: hidden;
     }
-    .tech-card:hover { border-color: var(--gold-dim); }
-    .tech-card::before {
+    .blog-card:hover { border-color: var(--gold-dim); }
+    .blog-card::before {
       content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
       background: linear-gradient(to right, var(--gold), transparent);
       transform: scaleX(0); transform-origin: left; transition: transform 0.4s;
     }
-    .tech-card:hover::before { transform: scaleX(1); }
-    .tech-icon { font-size: 1.5rem; margin-bottom: 1.2rem; display: block; }
-    .tech-card h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 400; margin-bottom: 0.6rem; color: var(--white); }
-    .tech-card p { font-size: 0.84rem; color: var(--white-dim); line-height: 1.7; }
+    .blog-card:hover::before { transform: scaleX(1); }
 
-    /* ── WHO WE SERVE ── */
-    #serve {
-      background: var(--black-soft);
-      border-top: 1px solid var(--black-border); border-bottom: 1px solid var(--black-border);
+    .blog-card-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      border-bottom: 1px solid var(--black-border);
     }
-    .serve-header { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; margin-bottom: 3.5rem; }
-    .serve-intro { color: var(--white-dim); font-size: 0.95rem; line-height: 1.85; }
 
-    .serve-panels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-    .serve-panel {
-      background: var(--black-card); border: 1px solid var(--black-border);
-      padding: 2.5rem 2rem; position: relative; overflow: hidden;
-      transition: border-color 0.3s;
-    }
-    .serve-panel:hover { border-color: var(--gold-dim); }
-    .serve-panel::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(to right, var(--gold), transparent);
-      transform: scaleX(0); transform-origin: left; transition: transform 0.4s;
-    }
-    .serve-panel:hover::before { transform: scaleX(1); }
-    .serve-panel-icon { font-size: 1.8rem; margin-bottom: 1.3rem; display: block; }
-    .serve-panel h3 { font-family: var(--serif); font-size: 1.35rem; font-weight: 400; margin-bottom: 0.8rem; color: var(--white); }
-    .serve-panel > p { font-size: 0.86rem; color: var(--white-dim); line-height: 1.75; margin-bottom: 1.2rem; }
-    .serve-panel-items { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1.2rem; padding-top: 1.2rem; border-top: 1px solid var(--black-border); }
-    .serve-panel-item { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.8rem; color: var(--white-dim); line-height: 1.5; }
-    .serve-panel-item::before { content: ''; width: 4px; height: 4px; background: var(--gold); flex-shrink: 0; margin-top: 0.45rem; }
+    .blog-card-body { padding: 1.8rem; }
+    .blog-card-label { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 0.7rem; }
+    .blog-card-title { font-family: var(--serif); font-size: 1.4rem; font-weight: 300; color: var(--white); line-height: 1.2; margin-bottom: 0.8rem; }
+    .blog-card-excerpt { font-size: 0.83rem; color: var(--white-dim); line-height: 1.7; margin-bottom: 1.2rem; }
+    .blog-card-meta { font-size: 0.68rem; letter-spacing: 0.08em; color: var(--white-dim); opacity: 0.5; }
+    .blog-card-read { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-top: 1rem; display: block; }
 
-    /* ── PROCESS ── */
-    #process { border-top: 1px solid var(--black-border); }
-    .process-steps {
-      display: grid; grid-template-columns: repeat(5, 1fr); gap: 0;
-      margin-top: 3.5rem; border: 1px solid var(--black-border);
-    }
-    .p-step { padding: 2.2rem 1.6rem; border-right: 1px solid var(--black-border); }
-    .p-step:last-child { border-right: none; }
-    .p-step-num { font-family: var(--serif); font-size: 0.62rem; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.8rem; display: block; }
-    .p-step h3 { font-family: var(--serif); font-size: 1.15rem; font-weight: 400; color: var(--white); margin-bottom: 0.6rem; }
-    .p-step p { font-size: 0.8rem; color: var(--white-dim); line-height: 1.65; }
-
-    /* ── ABOUT ── */
-    #about { border-top: 1px solid var(--black-border); background: var(--black-card); }
-    .about-inner { display: grid; grid-template-columns: auto 1fr; gap: 5rem; align-items: start; }
-    .about-photo-col { display: flex; flex-direction: column; align-items: center; gap: 1.4rem; }
-    .about-photo { width: 250px; height: 305px; object-fit: cover; object-position: center top; border: 1px solid var(--black-border); filter: grayscale(15%); }
-    .about-logo-badge img { width: 170px; height: auto; }
-    .about-text p { color: var(--white-dim); margin-bottom: 1.1rem; font-size: 0.93rem; }
-    .about-text p strong { color: var(--white); font-weight: 500; }
-    .about-stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 2.2rem; }
-    .stat-card { background: var(--black); padding: 1.3rem; border: 1px solid var(--black-border); }
-    .stat-card .stat-num { font-family: var(--serif); font-size: 2.3rem; font-weight: 300; color: var(--gold); line-height: 1; }
-    .stat-card .stat-label { font-size: 0.63rem; letter-spacing: 0.1em; color: var(--white-dim); margin-top: 0.4rem; text-transform: uppercase; }
-
-    /* ── WHY ── */
-    #why { border-top: 1px solid var(--black-border); }
-    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 3.2rem; border: 1px solid var(--black-border); }
-    .why-item { padding: 2.6rem 2.8rem; border-right: 1px solid var(--black-border); border-bottom: 1px solid var(--black-border); }
-    .why-item:nth-child(2n) { border-right: none; }
-    .why-item:nth-child(3), .why-item:nth-child(4) { border-bottom: none; }
-    .why-num { font-family: var(--serif); font-size: 2.8rem; font-weight: 300; color: var(--black-border); line-height: 1; margin-bottom: 1.2rem; }
-    .why-item h3 { font-family: var(--serif); font-size: 1.3rem; font-weight: 400; color: var(--white); margin-bottom: 0.6rem; }
-    .why-item p { font-size: 0.85rem; color: var(--white-dim); line-height: 1.75; }
-
-    /* ── PARTNERS ── */
-    #partners { background: var(--black-soft); border-top: 1px solid var(--black-border); border-bottom: 1px solid var(--black-border); }
-    .partners-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
-    .partner-quote { font-family: var(--serif); font-size: 1.3rem; font-weight: 300; font-style: italic; line-height: 1.55; color: var(--white); border-left: 2px solid var(--gold); padding-left: 2rem; margin: 2rem 0; }
-    .partners-left p { color: var(--white-dim); font-size: 0.9rem; line-height: 1.8; }
-    .partners-left p strong { color: var(--white); font-weight: 500; }
-    .partner-cards { display: flex; flex-direction: column; gap: 1.1rem; }
-    .partner-card { display: flex; gap: 1.2rem; align-items: flex-start; background: var(--black-card); border: 1px solid var(--black-border); padding: 1.5rem; transition: border-color 0.3s; }
-    .partner-card:hover { border-color: var(--gold-dim); }
-    .partner-icon { font-size: 1.3rem; flex-shrink: 0; }
-    .partner-card h4 { font-family: var(--serif); font-size: 1rem; font-weight: 400; margin-bottom: 0.3rem; color: var(--white); }
-    .partner-card p { font-size: 0.81rem; color: var(--white-dim); }
-
-    /* ── CONTACT ── */
-    #contact { text-align: center; padding: 7.5rem 4%; position: relative; overflow: hidden; }
-    #contact::before {
-      content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-      width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%); pointer-events: none;
-    }
-    .cta-logo { margin: 0 auto 1.8rem; width: 85px; display: block; position: relative; z-index: 1; }
-    .cta-title { font-family: var(--serif); font-size: clamp(2.2rem, 4.2vw, 4.2rem); font-weight: 300; line-height: 1.05; margin-bottom: 1.2rem; position: relative; z-index: 1; }
-    .cta-title em { font-style: italic; color: var(--gold); }
-    .cta-sub { color: var(--white-dim); max-width: 46ch; margin: 0 auto 2.4rem; font-size: 0.93rem; position: relative; z-index: 1; }
-    .cta-contact-details { margin-top: 2.2rem; display: flex; flex-direction: column; gap: 0.4rem; align-items: center; position: relative; z-index: 1; }
-    .cta-contact-details .cta-or { color: var(--white-dim); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.3rem; }
-    .cta-contact-details a { color: var(--gold); text-decoration: none; font-size: 1.05rem; transition: color 0.2s; }
-    .cta-contact-details a:hover { color: var(--gold-light); }
-    .cta-contact-details a.small { font-size: 0.85rem; color: var(--white-dim); }
-    .cta-contact-details a.small:hover { color: var(--gold); }
-
-    /* ── FOOTER ── */
     footer { border-top: 1px solid var(--black-border); padding: 2.2rem 4%; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.4rem; }
     .footer-logo { display: flex; align-items: center; gap: 0.65rem; }
-    .footer-logo img { height: 34px; width: auto; }
+    .footer-logo img { height: 34px; width: auto; mix-blend-mode: lighten; }
     .footer-logo span { font-family: var(--serif); font-size: 0.9rem; color: var(--gold); font-weight: 600; }
-    .footer-links { display: flex; gap: 1.6rem; list-style: none; flex-wrap: wrap; }
-    .footer-links a { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white-dim); text-decoration: none; transition: color 0.2s; }
-    .footer-links a:hover { color: var(--gold); }
     .footer-copy { font-size: 0.66rem; color: var(--white-dim); opacity: 0.4; }
 
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    .reveal { opacity: 1; transform: none; transition: opacity 0.7s ease, transform 0.7s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 1024px) {
-      .process-steps { grid-template-columns: repeat(3, 1fr); }
-      .p-step:nth-child(3) { border-right: none; }
-      .p-step:nth-child(4) { border-top: 1px solid var(--black-border); }
-      .p-step:nth-child(5) { border-top: 1px solid var(--black-border); border-right: none; }
-    }
-    @media (max-width: 900px) {
-      #hero, .concept-inner, .serve-header, .tech-header, .partners-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-      .hero-logo-wrap { display: none; }
-      .tech-grid, .serve-panels { grid-template-columns: 1fr 1fr; }
-      .why-grid { grid-template-columns: 1fr; }
-      .why-item { border-right: none; }
-      .why-item:nth-child(3) { border-bottom: 1px solid var(--black-border); }
-      .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-      .about-photo-col { flex-direction: row; align-items: flex-start; }
-      .about-photo { width: 130px; height: 160px; }
-      .about-stat-grid { grid-template-columns: repeat(4, 1fr); }
-      .nav-links, .nav-right { display: none; }
-      .nav-burger { display: flex; }
-      .nav-mobile-contact { display: flex; }
-    }
-    @media (max-width: 600px) {
-      section { padding: 4.5rem 5%; }
-      .tech-grid, .serve-panels { grid-template-columns: 1fr; }
-      .process-steps { grid-template-columns: 1fr; }
-      .p-step { border-right: none !important; border-bottom: 1px solid var(--black-border); border-top: none !important; }
-      .p-step:last-child { border-bottom: none; }
-      .about-stat-grid { grid-template-columns: repeat(2, 1fr); }
-      .concept-titles { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 900px) { .blog-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .blog-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav id="nav">
-  <a href="#hero" class="nav-logo">
-    <img src="images/background.jpeg" class="circuit-logo" alt="FTO Logo"  />
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="/images/background.jpeg" alt="FTO" />
     <div class="nav-logo-text">
       <strong>Family Technical Officer</strong>
       <span>Home Tech Solutions</span>
     </div>
   </a>
-
   <ul class="nav-links">
-    <li><a href="#technology">Services</a></li>
-    <li><a href="#serve">Who We Serve</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="blog/index.html">Blog</a></li>
-    <li><a href="#partners">Partners</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="/#technology">Services</a></li>
+    <li><a href="/#serve">Who We Serve</a></li>
+    <li><a href="/#about">About</a></li>
+    <li><a href="index.html" class="active">Blog</a></li>
+    <li><a href="/#partners">Partners</a></li>
   </ul>
-
   <div class="nav-right">
     <div class="nav-contact">
       <a href="tel:+12086402341">208.640.2341</a>
-      <a href="#contact" class="nav-email">Contact Form</a>
+      <a href="/#contact" class="nav-email">Contact Form</a>
     </div>
-    <a href="#contact" class="nav-cta">Free Consult</a>
+    <a href="/#contact" class="nav-cta">Free Consult</a>
   </div>
-
-  <div class="nav-mobile-contact" id="mobileContact">
-    <a href="tel:+12086402341">208.640.2341</a>
-    <a href="#" class="em" id="mobileEmail">info@familytechnicalofficer.com</a>
-  </div>
-  <div class="nav-burger" id="burger"><span></span><span></span><span></span></div>
 </nav>
 
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-bg-lines"></div>
-  <div class="hero-content">
+<div class="blog-header">
+  <p class="blog-label">FTO Blog</p>
+  <h1 class="blog-title">Home Technology,<br><em>Explained.</em></h1>
+  <p class="blog-sub">Tips, insights, and real-world guides on home networking, smart home automation, and making technology work for your life.</p>
+</div>
 
-    <p class="hero-location">Post Falls · Coeur d'Alene · Spokane</p>
+<div class="blog-grid">
+  <a href="wifi-aesthetics.html" class="blog-card">
+    <img src="images/ceiling-ap.png" alt="Wi-Fi access point in ceiling" class="blog-card-img" />
+    <div class="blog-card-body">
+      <p class="blog-card-label">Home Networking · Design</p>
+      <h2 class="blog-card-title">Wi-Fi That Disappears Into Your Home</h2>
+      <p class="blog-card-excerpt">Professional access points can be virtually invisible — ceiling mounts, painted wall units, and flush panels that blend into any luxury home.</p>
+      <p class="blog-card-meta">Kevin Christian &nbsp;·&nbsp; March 2026</p>
+      <span class="blog-card-read">Read Article →</span>
+    </div>
+  </a>
+</div>
 
-    <h1 class="hero-headline">Your personal<br><em>technology</em><br>expert —<br>for your home.</h1>
-
-    <p class="hero-sub">
-      Hire an expert to design, implement, and support your home technology — backed by 25 years of software quality and engineering experience. From large projects to small fixes, FTO handles it all. No upselling. No call centers. Local, in-person expert help.
-    </p>
-
-    <div class="hero-actions">
-      <a href="#contact" class="btn-primary">Schedule Free Consultation</a>
-      <a href="#technology" class="btn-ghost">See What I Do</a>
-    </div>
-
-    <div class="hero-services-list">
-      <span>Networking &amp; Wi-Fi</span>
-      <span>Smart Devices</span>
-      <span>Home Automation</span>
-      <span>PC Setup &amp; Support</span>
-    </div>
-
-  </div>
-  <div class="hero-logo-wrap">
-    <div class="hero-logo-glow"></div>
-    <img src="images/MainLogo.png" alt="Family Technical Officer" />
-  </div>
-</section>
-
-<!-- FTO CONCEPT -->
-<section id="fto-concept">
-  <div class="concept-inner">
-    <div class="concept-text reveal">
-      <p class="section-label">What Is FTO?</p>
-      <h2 class="concept-headline">Every company has a <em>CTO.</em><br>Your home now has an <strong>FTO.</strong></h2>
-      <p>Businesses hire a Chief Technology Officer to plan, manage, and maintain all their technology. Someone who knows the systems inside and out, makes sure everything works together, and is there when something breaks.</p>
-      <p>That's exactly what FTO is for your home — <strong>your dedicated technology expert</strong>, from initial setup and programming through ongoing support. No call centers, no strangers, no starting over every time.</p>
-      <div style="margin-top:2rem;">
-        <a href="#contact" class="btn-primary">Get Your FTO</a>
-      </div>
-    </div>
-    <div class="reveal">
-      <div class="concept-titles">
-        <div class="title-card">
-          <div class="abbr">CTO</div>
-          <div class="full">Chief Tech Officer</div>
-        </div>
-        <div class="title-card">
-          <div class="abbr">CFO</div>
-          <div class="full">Chief Financial Officer</div>
-        </div>
-        <div class="title-card fto">
-          <div class="abbr">FTO</div>
-          <div class="full">Family Technical Officer</div>
-        </div>
-      </div>
-      <div class="concept-tagline">
-        Most families don't have someone managing their home technology —
-        until now. <strong>FTO is that person.</strong>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- HOME TECHNOLOGY -->
-<section id="technology">
-  <div class="tech-header">
-    <div>
-      <p class="section-label">Home Technology</p>
-      <h2 class="section-title">Everything<br>connected.<br><em>Everything working.</em></h2>
-    </div>
-    <p class="tech-intro reveal">
-      I set up, program, and configure the technology in your home — from your network foundation to every connected device. No brand loyalty, no upselling. Just what works best for your home and your life.
-    </p>
-  </div>
-  <div class="tech-grid">
-    <div class="tech-card reveal">
-      <span class="tech-icon">📡</span>
-      <h3>Wi-Fi &amp; Networking</h3>
-      <p>Whole-home and whole-property coverage with zero dead zones. For new construction, I work with your builder to spec wired infrastructure built to last — including outdoor conduit runs so you can extend Wi-Fi to a shop, guest house, or future building without tearing anything up. Wire it once. Expand forever.</p>
-    </div>
-    <div class="tech-card reveal">
-      <span class="tech-icon">🛡️</span>
-      <h3>Network Security &amp; Privacy</h3>
-      <p>Most routers are insecure right out of the box. I use professional-grade, business-class equipment and configure it properly — guest isolation, VLAN segmentation, unique passwords, and locked-down smart devices. The same level of network security businesses pay thousands for, properly set up in your home.</p>
-    </div>
-    <div class="tech-card reveal">
-      <span class="tech-icon">🏠</span>
-      <h3>Home Automation</h3>
-      <p>Custom automations built around your life — not a vendor's ecosystem. Lights, climate, locks, blinds, and sensors all working together intelligently, without you having to think about it.</p>
-    </div>
-    <div class="tech-card reveal">
-      <span class="tech-icon">🔒</span>
-      <h3>Smart Devices</h3>
-      <p>Cameras, locks, thermostats, garage doors, doorbells, blinds, motion detection — all connected and configured. If it plugs in or connects to your network, I set it up right and make it work with everything else.</p>
-    </div>
-    <div class="tech-card reveal">
-      <span class="tech-icon">📺</span>
-      <h3>Audio &amp; TV</h3>
-      <p>TV setup and programming, streaming configuration, and audio system integration. Whether it's a soundbar, a receiver, or a multi-room audio system you already have — I get it all working together and programmed the way you want it, first time.</p>
-    </div>
-    <div class="tech-card reveal">
-      <span class="tech-icon">💻</span>
-      <h3>PC Setup &amp; Support</h3>
-      <p>New computer setup, printer headaches, software problems, and performance issues — handled with the same precision a 25-year Microsoft engineer brings to every job.</p>
-    </div>
-  </div>
-</section>
-
-<!-- WHO WE SERVE -->
-<section id="serve">
-  <div class="serve-header">
-    <div>
-      <p class="section-label">Who I Serve</p>
-      <h2 class="section-title">The right solution<br>for <em>your situation.</em></h2>
-    </div>
-    <p class="serve-intro reveal">
-      Whether you're breaking ground on a new build, refreshing an existing home,
-      or running a short-term rental, FTO brings the right approach for where you are
-      — and where you want to be.
-    </p>
-  </div>
-
-  <div class="serve-panels">
-
-    <div class="serve-panel reveal">
-      <span class="serve-panel-icon">🏗️</span>
-      <h3>New Construction</h3>
-      <p>The ideal time to do it right. I work with your builder at the design stage to spec every access point, cable run, and smart device location before the walls close — so your finished home is genuinely intelligent from move-in day.</p>
-      <div class="serve-panel-items">
-        <div class="serve-panel-item">Floor plan review &amp; system design</div>
-        <div class="serve-panel-item">Contractor coordination for rough-in</div>
-        <div class="serve-panel-item">Full commissioning at move-in</div>
-        <div class="serve-panel-item">Clean infrastructure, no retrofitting</div>
-      </div>
-    </div>
-
-    <div class="serve-panel reveal">
-      <span class="serve-panel-icon">🏠</span>
-      <h3>Existing Home Upgrade</h3>
-      <p>Already in your home and ready to make it smarter? I assess what you have, build on what works, and upgrade what doesn't. From a better router to a full smart home — no rip-and-replace required.</p>
-      <div class="serve-panel-items">
-        <div class="serve-panel-item">Whole-home Wi-Fi &amp; network upgrade</div>
-        <div class="serve-panel-item">Smart device setup &amp; integration</div>
-        <div class="serve-panel-item">Lighting, blinds, climate &amp; locks</div>
-        <div class="serve-panel-item">Home automation programming</div>
-      </div>
-    </div>
-
-    <div class="serve-panel reveal">
-      <span class="serve-panel-icon">🏖️</span>
-      <h3>Vacation Rental</h3>
-      <p>Running a short-term rental means managing access codes, worrying about guests on your network, and dealing with thermostats left running. Smart technology handles all of that automatically — so you spend less time managing and more time earning.</p>
-      <div class="serve-panel-items">
-        <div class="serve-panel-item">Automated guest door codes</div>
-        <div class="serve-panel-item">Isolated secure guest Wi-Fi</div>
-        <div class="serve-panel-item">Smart thermostat scheduling</div>
-        <div class="serve-panel-item">Cameras &amp; remote monitoring</div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- FTO HOME AUTOMATION PROCESS -->
-<section id="process">
-  <p class="section-label">Step by Step</p>
-  <h2 class="section-title">The FTO <em>Home Automation</em> Process</h2>
-  <div class="process-steps">
-    <div class="p-step reveal">
-      <span class="p-step-num">Step 01</span>
-      <h3>Free Consult</h3>
-      <p>Walk me through your home and wishlist. I'll diagnose your current setup, identify priorities, and outline a plan. No obligation.</p>
-    </div>
-    <div class="p-step reveal">
-      <span class="p-step-num">Step 02</span>
-      <h3>Network First</h3>
-      <p>Solid Wi-Fi and network security before any automation is added. Everything else depends on the foundation being right.</p>
-    </div>
-    <div class="p-step reveal">
-      <span class="p-step-num">Step 03</span>
-      <h3>Smart Setup</h3>
-      <p>I connect your devices, build your automations, and program everything based on how you actually want to live in your home.</p>
-    </div>
-    <div class="p-step reveal">
-      <span class="p-step-num">Step 04</span>
-      <h3>Handoff</h3>
-      <p>Clean dashboard, plain-English walkthrough. You're in control from day one — not dependent on me for every small thing.</p>
-    </div>
-    <div class="p-step reveal">
-      <span class="p-step-num">Step 05</span>
-      <h3>Follow-Up</h3>
-      <p>I follow up to make sure everything works the way you want. Adjustments, new devices, changes to your routine — I've got you covered. After living with your system for a few weeks, you'll have a much better sense of how you actually want things to work. That's the best time to fine-tune — and I'll be there for it.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT KEVIN -->
-<section id="about">
-  <div class="about-inner">
-    <div class="about-photo-col reveal">
-      <img src="images/FTO-Personal-Photo.jpeg" alt="Kevin Christian, Family Technical Officer" class="about-photo" />
-      <div class="about-logo-badge">
-        <img src="images/background.jpeg" class="circuit-logo" alt="FTO"  />
-      </div>
-    </div>
-    <div>
-      <p class="section-label">Meet Kevin</p>
-      <h2 class="section-title">25 years at Microsoft.<br>Now working<br><em>for your home.</em></h2>
-      <div class="gold-rule"></div>
-      <div class="about-text">
-        <p>I've been using computers since the 1980s. I built my first PC as a kid — not because someone showed me how, but because I wanted to understand how it worked. That curiosity never left.</p>
-        <p>For the past 25 years, I was a software quality engineer at Microsoft, helping ship several versions of Windows. I spent years making sure complex systems worked reliably for millions of users — partnering with hardware manufacturers, game publishers and developers, and Microsoft engineers to make sure games and applications continued to work when users upgraded to a new version of Windows.</p>
-        <p>That mindset — plan it right, test it thoroughly, don't leave until it works — is the same one I bring to your home.</p>
-        <p>For over 20 years, friends and family kept calling me when their tech wasn't working. I'd show up, figure it out, and fix it. Eventually it became a running joke — I started calling myself the "Family Technical Officer." The name stuck. So did the calling.</p>
-        <p>FTO is built on one simple belief: home technology should work reliably, be simple enough for anyone to use, and have someone accountable when it doesn't. Not a call center. Not a technician who disappears after install day. A real person who knows your system, knows your home, and picks up the phone.</p>
-        <p>I handle everything from the rack to the app — equipment setup, programming, and configuration. For new construction or anything requiring cable runs through walls, I coordinate with your electrician or low-voltage contractor so everything lands exactly where it needs to be.</p>
-      </div>
-
-      <div style="margin-top:2rem;">
-        <p class="section-label">My Philosophy</p>
-        <div class="about-text">
-          <p>I believe your home technology should work for you — from minimal tech to full automation. Where possible, I recommend products that keep you in control: local storage instead of ongoing cloud fees, open platforms instead of vendor lock-in, and systems that keep working even if a company changes their pricing or shuts down a service. Your data stays in your home. Your system stays yours.</p>
-        </div>
-      </div>
-      <div class="about-stat-grid reveal">
-        <div class="stat-card"><div class="stat-num">25</div><div class="stat-label">Years at Microsoft</div></div>
-        <div class="stat-card"><div class="stat-num">1:1</div><div class="stat-label">Personal Service</div></div>
-        <div class="stat-card"><div class="stat-num">0</div><div class="stat-label">Call Centers</div></div>
-        <div class="stat-card"><div class="stat-num">∞</div><div class="stat-label">Follow-up Support</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WHY FTO -->
-<section id="why">
-  <p class="section-label">Why FTO</p>
-  <h2 class="section-title">Not a franchise.<br>Not a call center.<br><em>Just me.</em></h2>
-  <div class="gold-rule"></div>
-  <div class="why-grid">
-    <div class="why-item reveal">
-      <div class="why-num">01</div>
-      <h3>No Jargon, No Upselling</h3>
-      <p>Plain English explanations every step of the way. I recommend what genuinely fits your home and your budget — not the most expensive option or the easiest thing to sell.</p>
-    </div>
-    <div class="why-item reveal">
-      <div class="why-num">02</div>
-      <h3>One Person, Accountable</h3>
-      <p>You deal with me directly, every time. No handoffs, no "let me check with the team." When something needs attention, you know exactly who to call.</p>
-    </div>
-    <div class="why-item reveal">
-      <div class="why-num">03</div>
-      <h3>Engineering Precision</h3>
-      <p>25 years building and testing complex software systems at Microsoft translates directly to home technology. I plan before I act, document everything, and test thoroughly before I leave.</p>
-    </div>
-    <div class="why-item reveal">
-      <div class="why-num">04</div>
-      <h3>Local &amp; In-Person</h3>
-      <p>I show up at your home — in Post Falls, Coeur d'Alene, Spokane, and surrounding areas. No remote-only support, no offshore help desk. Real, in-person service from someone who knows the area.</p>
-    </div>
-  </div>
-</section>
-
-<!-- PARTNERS -->
-<section id="partners">
-  <div class="partners-inner">
-    <div class="partners-left">
-      <p class="section-label">Referral Partners</p>
-      <h2 class="section-title">For Builders,<br>Designers<br>&amp; <em>Realtors</em></h2>
-      <div class="gold-rule"></div>
-      <p>FTO is the trusted tech resource you can confidently hand off to. Your clients get a system that actually works, is simple enough for anyone to use, and has someone accountable when questions come up. Let's talk about a <strong>Move-In Tech Tune-Up</strong> for your buyers, or a preferred-partner arrangement for new builds.</p>
-      <div style="margin-top:1.8rem;"><a href="#contact" class="btn-primary">Partner With FTO</a></div>
-    </div>
-    <div class="partner-cards reveal">
-      <div class="partner-card">
-        <span class="partner-icon">🔨</span>
-        <div>
-          <h4>For Builders</h4>
-          <p>I work from your plans at design stage, coordinate with your subs on rough-in, and commission the finished system at move-in. Your clients get a genuinely smart home from day one.</p>
-        </div>
-      </div>
-      <div class="partner-card">
-        <span class="partner-icon">🎨</span>
-        <div>
-          <h4>For Interior Designers</h4>
-          <p>Lighting control, shading, and audio that complement your design vision — spec'd and commissioned cleanly, with no compromises to your aesthetic.</p>
-        </div>
-      </div>
-      <div class="partner-card">
-        <span class="partner-icon">🏡</span>
-        <div>
-          <h4>For Realtors</h4>
-          <p>Offer a Move-In Tech Tune-Up at closing. Fast Wi-Fi, connected devices, and a smooth start means happy clients and referrals that come back to you.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <img src="images/background.jpeg" class="cta-logo circuit-logo" alt="FTO" />
-  <h2 class="cta-title">Ready to get<br>your home <em>working?</em></h2>
-  <p class="cta-sub">Schedule a free, no-obligation in-home consultation. Serving Post Falls, Coeur d'Alene, Spokane, and surrounding areas.</p>
-
-  <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/success.html" style="position:relative;z-index:1;max-width:540px;margin:0 auto;text-align:left;">
-    <input type="hidden" name="form-name" value="contact" />
-    <p style="display:none;"><input name="bot-field" /></p>
-    <div style="display:flex;flex-direction:column;gap:1rem;">
-      <div>
-        <label style="font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--white-dim);display:block;margin-bottom:0.4rem;">Name <span style="color:var(--gold)">*</span></label>
-        <input type="text" name="name" required style="width:100%;background:var(--black-card);border:1px solid var(--black-border);color:var(--white);padding:0.8rem 1rem;font-family:var(--sans);font-size:0.9rem;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--gold-dim)'" onblur="this.style.borderColor='var(--black-border)'" />
-      </div>
-      <div>
-        <label style="font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--white-dim);display:block;margin-bottom:0.4rem;">Email <span style="color:var(--gold)">*</span></label>
-        <input type="email" name="email" required style="width:100%;background:var(--black-card);border:1px solid var(--black-border);color:var(--white);padding:0.8rem 1rem;font-family:var(--sans);font-size:0.9rem;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--gold-dim)'" onblur="this.style.borderColor='var(--black-border)'" />
-      </div>
-      <div>
-        <label style="font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--white-dim);display:block;margin-bottom:0.4rem;">Phone <span style="color:var(--white-dim);font-size:0.6rem;">(optional)</span></label>
-        <input type="tel" name="phone" style="width:100%;background:var(--black-card);border:1px solid var(--black-border);color:var(--white);padding:0.8rem 1rem;font-family:var(--sans);font-size:0.9rem;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--gold-dim)'" onblur="this.style.borderColor='var(--black-border)'" />
-      </div>
-      <div>
-        <label style="font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--white-dim);display:block;margin-bottom:0.4rem;">Message <span style="color:var(--gold)">*</span></label>
-        <textarea name="message" required rows="5" style="width:100%;background:var(--black-card);border:1px solid var(--black-border);color:var(--white);padding:0.8rem 1rem;font-family:var(--sans);font-size:0.9rem;outline:none;resize:vertical;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--gold-dim)'" onblur="this.style.borderColor='var(--black-border)'"></textarea>
-      </div>
-      <button type="submit" class="btn-primary" style="width:100%;cursor:pointer;">Send Message</button>
-    </div>
-  </form>
-
-  <div class="cta-contact-details">
-    <span class="cta-or">Or reach me directly</span>
-    <a href="tel:+12086402341">208.640.2341</a>
-    <a href="#" class="small" id="ctaEmailSmall">info@familytechnicalofficer.com</a>
-  </div>
-</section>
-
-<!-- FOOTER -->
 <footer>
   <div class="footer-logo">
-    <img src="images/background.jpeg" class="circuit-logo" alt="FTO"  />
+    <img src="/images/background.jpeg" alt="FTO" />
     <span>Family Technical Officer</span>
   </div>
-  <ul class="footer-links">
-    <li><a href="#technology">Services</a></li>
-    <li><a href="#serve">Who We Serve</a></li>
-    <li><a href="#process">Process</a></li>
-    <li><a href="#why">Why FTO</a></li>
-    <li><a href="#partners">Partners</a></li>
-    <li><a href="blog/index.html">Blog</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
   <p class="footer-copy">© 2025 Family Technical Officer LLC · Coeur d'Alene, Idaho</p>
 </footer>
 
-<script>
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50));
-
-  // Set email links at runtime to bypass Cloudflare scraping
-  const e = 'info' + '@' + 'familytechnicalofficer.com';
-  const mailto = 'mailto:' + e;
-  ['mobileEmail','ctaEmailSmall'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) { el.href = mailto; el.textContent = e; }
-  });
-
-  function checkMobile() {
-    const mobile = window.innerWidth <= 900;
-    document.getElementById('mobileContact').styl
+</body>
+</html>
