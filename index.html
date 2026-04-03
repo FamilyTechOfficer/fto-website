@@ -805,7 +805,13 @@
             body: new FormData(form)
           });
           if (response.ok) {
-            window.location.href = '/success.html';
+            const section = document.getElementById('contact');
+            const formEl = document.getElementById('contactForm');
+            formEl.innerHTML = '<div style="text-align:center;padding:2rem 0;">' +
+              '<div style="font-size:2.4rem;margin-bottom:0.8rem;">✓</div>' +
+              '<h3 style="font-family:var(--serif);font-size:1.8rem;color:var(--gold);margin-bottom:0.8rem;font-weight:300;">Message Sent</h3>' +
+              '<p style="color:var(--white-dim);font-size:0.95rem;line-height:1.7;">Thank you for reaching out. I\'ll get back to you shortly.</p>' +
+              '</div>';
           } else {
             btn.textContent = 'Send Message';
             btn.disabled = false;
@@ -819,4 +825,40 @@
       });
     }
   });
-  const e = 'info' + '@' + 'familytechnicaloffi
+  const e = 'info' + '@' + 'familytechnicalofficer.com';
+  const mailto = 'mailto:' + e;
+  ['mobileEmail','ctaEmailSmall'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) { el.href = mailto; el.textContent = e; }
+  });
+  const cta = document.getElementById('ctaEmail');
+  if (cta) cta.href = mailto;
+
+  // Mobile burger menu
+  const burger = document.querySelector('.nav-burger');
+  const navLinks = document.querySelector('.nav-links');
+  if (burger) {
+    burger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+  }
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  if (reveals.length) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    reveals.forEach(el => observer.observe(el));
+  }
+</script>
+</body>
+</html>
