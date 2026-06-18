@@ -324,6 +324,11 @@
     .partner-icon { font-size: 1.3rem; flex-shrink: 0; width: 3rem; }
     .partner-card h4 { font-family: var(--serif); font-size: 1rem; font-weight: 400; margin-bottom: 0.3rem; color: var(--white); }
     .partner-card p { font-size: 0.81rem; color: var(--white-dim); }
+    .partner-card--featured { border-color: var(--gold-dim); background: #1c1c1c; }
+    .partner-card--featured:hover { border-color: var(--gold); }
+    .partner-group-header { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white-dim); margin-bottom: 0.4rem; }
+    .partner-group-header + .partner-group-header { margin-top: 0.8rem; }
+    .partner-trade { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-dim); display: block; margin-bottom: 0.25rem; }
 
     /* ── CONTACT ── */
     #contact { text-align: center; padding: 7.5rem 4%; position: relative; overflow: hidden; }
@@ -706,32 +711,37 @@
       <div style="margin-top:1.8rem;"><a href="#contact" class="btn-primary">Partner With FTO</a></div>
     </div>
     <div class="partner-cards reveal">
-      <div class="partner-card">
-        <span class="partner-icon">🔨</span>
-        <div>
-          <h4>For Builders</h4>
-          <p>I work from your plans at design stage, coordinate with your subs on rough-in, and commission the finished system at move-in. Your clients get a genuinely smart home from day one.</p>
-        </div>
-      </div>
-      <div class="partner-card">
-        <span class="partner-icon">🎨</span>
-        <div>
-          <h4>For Interior Designers</h4>
-          <p>Lighting control, shading, and audio that complement your design vision — spec'd and commissioned cleanly, with no compromises to your aesthetic.</p>
-        </div>
-      </div>
-      <div class="partner-card">
-        <span class="partner-icon">🏡</span>
-        <div>
-          <h4>For Realtors</h4>
-          <p>Offer a Move-In Tech Tune-Up at closing. Fast Wi-Fi, connected devices, and a smooth start means happy clients and referrals that come back to you.</p>
-        </div>
-      </div>
-      <a href="https://tklightingdesign.com" target="_blank" rel="noopener" class="partner-card" style="text-decoration: none;">
-        <img src="images/tk-lighting-logo.png" alt="TK Lighting Design logo" class="partner-icon" style="width:3rem; height:3rem; object-fit:contain;">
+      <p class="partner-group-header">Project Collaborator</p>
+      <a href="https://tklightingdesign.com" target="_blank" rel="noopener" class="partner-card partner-card--featured" style="text-decoration:none;">
+        <img src="images/tk-lighting-logo.png" alt="TK Lighting Design" class="partner-icon" style="width:3rem;height:3rem;object-fit:contain;">
         <div>
           <h4>TK Lighting Design</h4>
-          <p>Professional lighting design for residential and commercial spaces — fixture selection, layouts, and submittal drawings. FTO handles the automation and scene programming. Together, a complete lighting solution.</p>
+          <p>TK handles fixture selection, layouts, and submittals. FTO handles automation and scene programming. Together, a complete lighting solution.</p>
+        </div>
+      </a>
+      <p class="partner-group-header" style="margin-top:0.6rem;">Trusted Referrals</p>
+      <a href="https://www.condronhomes.com" target="_blank" rel="noopener" class="partner-card" style="text-decoration:none;">
+        <img src="images/condron-logo.jpg" alt="Condron Homes" class="partner-icon" style="width:3rem;height:3rem;object-fit:contain;">
+        <div>
+          <span class="partner-trade">Builder</span>
+          <h4>Condron Homes</h4>
+          <p>Family-owned since 1974, Condron Homes builds custom and spec homes across Northeast Washington and Spokane — known in the industry for consistency and efficiency, and by their clients for honesty and exceptional service.</p>
+        </div>
+      </a>
+      <a href="https://www.mountainhighhomebuilders.com" target="_blank" rel="noopener" class="partner-card" style="text-decoration:none;">
+        <img src="images/mountain-high-logo.png" alt="Mountain High Home Builders" class="partner-icon" style="width:3rem;height:3rem;object-fit:contain;">
+        <div>
+          <span class="partner-trade">Builder</span>
+          <h4>Mountain High Home Builders</h4>
+          <p>30 years of custom home building across North Idaho — modern retreats, rustic lodges, traditional builds — with meticulous attention to detail and a reputation earned one project at a time.</p>
+        </div>
+      </a>
+      <a href="https://www.nestdesignsbuild.com" target="_blank" rel="noopener" class="partner-card" style="text-decoration:none;">
+        <img src="images/nest-logo.png" alt="Nest Design + Build" class="partner-icon" style="width:3rem;height:3rem;object-fit:contain;">
+        <div>
+          <span class="partner-trade">Interior Designer</span>
+          <h4>Nest Design + Build</h4>
+          <p>Full-service interior and exterior design studio based in North Idaho, specializing in new construction and whole-home remodels. Award-winning work, delivered on time and on budget.</p>
         </div>
       </a>
     </div>
