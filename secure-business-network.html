@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Secure Business Network · Family Technical Officer</title>
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --card: #FBF8F2;
+    --gold: #9A7B2F;
+    --blue: #1F5FA8;
+    --ink: #1F1F1F;
+    --gray: #555555;
+    --line: #D9CFBD;
+    --green: #3E7B4B;
+    --teal: #2E7D78;
+    --purple: #6A4F98;
+    --rust: #B0552E;
+    --navy: #2C5B8C;
+    --red: #A33A2B;
+  }
+  @page { size: letter; margin: 0.45in 0.5in 0.4in 0.5in; background: var(--cream); }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: Helvetica, Arial, sans-serif; color: var(--ink); font-size: 9.2pt; line-height: 1.35; }
+
+  /* Header */
+  .hdr { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 8pt; border-bottom: 0.75pt solid #8a8a8a; }
+  .brand { font-size: 17pt; font-weight: bold; color: var(--gold); line-height: 1.1; }
+  .sub { font-size: 8pt; color: var(--ink); margin-top: 3pt; }
+  .contact { text-align: right; font-size: 7.6pt; }
+  .contact .ph { font-size: 11.5pt; font-weight: bold; color: var(--gold); margin-bottom: 2pt; }
+
+  h1 { font-size: 21pt; margin: 12pt 0 2pt; line-height: 1.1; }
+  .tag { font-size: 11.5pt; font-weight: bold; color: var(--gold); margin-bottom: 6pt; }
+  .intro { font-size: 9.6pt; margin: 0 0 10pt; }
+
+  .label { font-size: 8.5pt; font-weight: bold; color: var(--gold); text-transform: uppercase; letter-spacing: 0.3pt; }
+
+  /* Three options */
+  .opts { display: flex; gap: 8pt; margin-top: 5pt; }
+  .opt { flex: 1; background: var(--card); border: 0.75pt solid var(--line); border-radius: 6pt; padding: 8pt 9pt; }
+  .opt.win { background: #FFFDF8; border: 1.5pt solid var(--gold); }
+  .opt h3 { margin: 0; font-size: 10.5pt; }
+  .opt .what { font-size: 8pt; color: var(--gray); margin: 2pt 0 5pt; min-height: 20pt; }
+  .opt ul { list-style: none; padding: 0; margin: 0; }
+  .opt li { font-size: 8.4pt; padding-left: 12pt; position: relative; margin-bottom: 2.5pt; }
+  .opt li::before { position: absolute; left: 0; font-weight: bold; }
+  .opt li.no::before { content: "\2715"; color: var(--red); }
+  .opt li.yes::before { content: "\2713"; color: var(--green); }
+  .opt .verdict { margin-top: 5pt; padding-top: 4pt; border-top: 0.5pt solid var(--line); font-size: 8.2pt; font-style: italic; color: var(--gray); }
+  .opt.win .verdict { color: var(--gold); font-weight: bold; font-style: normal; }
+
+  /* Before / after */
+  .ba { display: flex; gap: 10pt; margin-top: 10pt; background: var(--card); border: 0.75pt solid var(--line); border-radius: 6pt; padding: 9pt 10pt; }
+  .side { flex: 1; }
+  .side .label { margin-bottom: 5pt; }
+  .pool { border: 1.25pt dashed var(--red); border-radius: 6pt; padding: 7pt 6pt 5pt; text-align: center; }
+  .chip { display: inline-block; font-size: 7.6pt; background: #fff; border: 0.75pt solid #bbb; border-radius: 10pt; padding: 2pt 6pt; margin: 1.5pt; }
+  .cap { font-size: 8pt; text-align: center; margin-top: 5pt; font-weight: bold; }
+  .cap.bad { color: var(--red); }
+  .cap.good { color: var(--green); }
+  .fw { background: #F2EAD6; border: 1pt solid var(--gold); border-radius: 4pt; text-align: center; font-size: 8pt; font-weight: bold; padding: 3pt; margin-bottom: 5pt; }
+  .fw span { font-weight: normal; color: var(--gray); }
+  .nets { display: flex; gap: 4pt; }
+  .net { flex: 1; color: #fff; border-radius: 4pt; text-align: center; padding: 5pt 2pt; font-size: 8pt; font-weight: bold; line-height: 1.2; }
+  .net span { display: block; font-weight: normal; font-size: 7pt; opacity: 0.92; margin-top: 1pt; }
+  .arrow { width: 22pt; display: flex; align-items: center; justify-content: center; font-size: 18pt; color: var(--gold); }
+
+  /* Bottom columns */
+  .cols { display: flex; gap: 14pt; margin-top: 10pt; }
+  .col { flex: 1; }
+  .col .label { border-bottom: 0.75pt solid var(--gold); padding-bottom: 2pt; margin-bottom: 5pt; }
+  .gets { list-style: none; padding: 0; margin: 0; }
+  .gets li { position: relative; padding-left: 11pt; margin-bottom: 3.5pt; font-size: 8.5pt; }
+  .gets li::before { content: ""; position: absolute; left: 0; top: 3pt; width: 5.5pt; height: 5.5pt; border-radius: 50%; background: var(--gold); }
+  .gets b { display: block; font-size: 8.9pt; }
+  .gets span { color: var(--gray); }
+
+  .who { font-size: 8.5pt; margin: 0 0 6pt; }
+  .who b { color: var(--ink); }
+  .health { background: #EDF2F8; border-left: 2.5pt solid var(--blue); padding: 5pt 7pt; font-size: 8.2pt; margin-bottom: 8pt; }
+  .steps { list-style: none; padding: 0; margin: 0; counter-reset: s; }
+  .steps li { counter-increment: s; position: relative; padding-left: 17pt; margin-bottom: 4pt; font-size: 8.5pt; }
+  .steps li::before { content: counter(s); position: absolute; left: 0; top: 0; width: 12pt; height: 12pt; border-radius: 50%; background: var(--blue); color: #fff; font-size: 7.5pt; font-weight: bold; text-align: center; line-height: 12pt; }
+  .steps b { font-size: 8.9pt; }
+  .steps span { color: var(--gray); }
+
+  .cta { margin-top: 10pt; background: var(--ink); color: #fff; border-radius: 6pt; padding: 8pt 12pt; display: flex; justify-content: space-between; align-items: center; }
+  .cta .big { font-size: 11.5pt; font-weight: bold; }
+  .cta .small { font-size: 8pt; color: #ddd; margin-top: 1pt; }
+  .cta .right { text-align: right; font-size: 8.5pt; }
+  .cta .right .ph { font-size: 13pt; font-weight: bold; color: #E5C878; }
+
+  .ftr { margin-top: 8pt; padding-top: 5pt; border-top: 0.75pt solid #8a8a8a; display: flex; justify-content: space-between; font-size: 7.6pt; }
+  .ftr b { font-size: 8pt; }
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div>
+    <div class="brand">Family Technical Officer</div>
+    <div class="sub">Kevin Christian &nbsp;·&nbsp; Post Falls · Coeur d'Alene · Spokane</div>
+  </div>
+  <div class="contact">
+    <div class="ph">208.640.2341</div>
+    familytechnicalofficer.com<br>
+    webcontact@familytechnicalofficer.com
+  </div>
+</div>
+
+<h1>A Secure Network for Your Small Business</h1>
+<div class="tag">Built right once. Yours to keep. No monthly contract.</div>
+<p class="intro">Your network carries your customer records, your payments, and your passwords. Most small businesses end up with one of two options, and neither one is a great fit. There's a better middle ground.</p>
+
+<div class="label">Your three options</div>
+<div class="opts">
+  <div class="opt">
+    <h3>The shared router</h3>
+    <div class="what">The box from your internet provider. Staff, guests, and devices all on one network.</div>
+    <ul>
+      <li class="yes">No monthly fee</li>
+      <li class="no">Guests on the same network as your computers</li>
+      <li class="no">One virus can spread to every device</li>
+      <li class="no">Nobody to call when it breaks</li>
+    </ul>
+    <div class="verdict">Cheap, but wide open.</div>
+  </div>
+  <div class="opt">
+    <h3>The IT contract</h3>
+    <div class="what">A managed IT company with a monthly fee, often locked in for years.</div>
+    <ul>
+      <li class="yes">Secure setup</li>
+      <li class="no">You pay every month, forever</li>
+      <li class="no">They often hold the passwords</li>
+      <li class="no">Hard to leave if you're unhappy</li>
+    </ul>
+    <div class="verdict">Secure, but you rent it.</div>
+  </div>
+  <div class="opt win">
+    <h3>The FTO way</h3>
+    <div class="what">A business-grade network, designed and installed once, then handed to you.</div>
+    <ul>
+      <li class="yes">Staff, guests, and devices kept apart</li>
+      <li class="yes">No monthly fees, no contract</li>
+      <li class="yes">You own the equipment and passwords</li>
+      <li class="yes">Same person to call, every time</li>
+    </ul>
+    <div class="verdict">Secure, and it's yours.</div>
+  </div>
+</div>
+
+<div class="ba">
+  <div class="side">
+    <div class="label">Today: one shared network</div>
+    <div class="pool">
+      <span class="chip">Office computers</span><span class="chip">Guest phones</span><span class="chip">Card reader</span><br>
+      <span class="chip">Cameras</span><span class="chip">Printer</span><span class="chip">Tenant laptop</span><span class="chip">Smart TV</span>
+    </div>
+    <div class="cap bad">Every device can see every other device.</div>
+  </div>
+  <div class="arrow">&#10140;</div>
+  <div class="side">
+    <div class="label">After: separate networks</div>
+    <div class="fw">Business-grade firewall <span>· keeps each network apart</span></div>
+    <div class="nets">
+      <div class="net" style="background:var(--navy)">Staff<span>computers, printer</span></div>
+      <div class="net" style="background:var(--green)">Guests<span>Wi-Fi only</span></div>
+      <div class="net" style="background:var(--rust)">Devices<span>card reader, cameras</span></div>
+      <div class="net" style="background:var(--purple)">Tenants<span>each on their own</span></div>
+    </div>
+    <div class="cap good">Each network reaches the internet, not each other.</div>
+  </div>
+</div>
+
+<div class="cols">
+  <div class="col">
+    <div class="label">What you get</div>
+    <ul class="gets">
+      <li><b>Separate networks</b><span>Staff, guests, payments, and cameras each walled off.</span></li>
+      <li><b>Guest Wi-Fi that can't see your computers</b><span>Customers get internet. Nothing else.</span></li>
+      <li><b>Strong, reliable Wi-Fi</b><span>Business-grade equipment, placed where you need it.</span></li>
+      <li><b>A map of your network</b><span>A simple diagram and equipment list for your records.</span></li>
+      <li><b>Locked-down admin access</b><span>No default passwords. You hold the keys.</span></li>
+      <li><b>Equipment at cost</b><span>No markup on hardware. No licenses or monthly fees.</span></li>
+    </ul>
+  </div>
+  <div class="col">
+    <div class="label">Who it's for</div>
+    <p class="who"><b>Offices, practices, studios, and shops</b> with a handful of staff, customers on the Wi-Fi, and information worth protecting. Also <b>building owners</b> who share internet with tenants.</p>
+    <div class="health"><b>Health and wellness practices:</b> each practice runs on its own private network, and you get a network map and equipment list to support your patient-privacy obligations.</div>
+    <div class="label">How it works</div>
+    <ol class="steps">
+      <li><b>Walkthrough.</b> <span>I look at your space and what you use today.</span></li>
+      <li><b>Clear proposal.</b> <span>Equipment and pricing, up front.</span></li>
+      <li><b>Install and setup.</b> <span>Usually uses the wiring you already have.</span></li>
+      <li><b>Handoff.</b> <span>Your map, your passwords, your equipment.</span></li>
+    </ol>
+  </div>
+</div>
+
+<div class="cta">
+  <div>
+    <div class="big">Not sure what you have today? Let's take a look.</div>
+    <div class="small">Call or email to set up a walkthrough.</div>
+  </div>
+  <div class="right">
+    <div class="ph">208.640.2341</div>
+    webcontact@familytechnicalofficer.com
+  </div>
+</div>
+
+<div class="ftr">
+  <b>Same person, every time.</b>
+  <span>Family Technical Officer &nbsp;·&nbsp; 208.640.2341 &nbsp;·&nbsp; familytechnicalofficer.com</span>
+</div>
+
+</body>
+</html>

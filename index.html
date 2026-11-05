@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Family Technical Officer — Home Tech Solutions · Post Falls, Coeur d'Alene &amp; Spokane</title>
-  <meta name="description" content="Family Technical Officer — Expert home technology design, setup, and automation in Post Falls, Coeur d'Alene, and Spokane. Wi-Fi, smart home, security, and more. Backed by 25 years of Microsoft engineering experience." />
-  <meta name="keywords" content="home automation, smart home, wifi setup, home networking, Post Falls, Coeur d'Alene, Spokane, North Idaho, home technology, smart devices, Kevin Christian" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Family Technical Officer · Home &amp; Small Business Technology · Coeur d'Alene, Post Falls, Spokane</title>
+  <meta name="description" content="Networks, Wi-Fi, security, and smart home for homes and small businesses in North Idaho and Spokane. No markup on equipment, no monthly contracts, and you own everything." />
+  <meta name="keywords" content="home automation, smart home, wifi setup, home networking, small business network, office wifi, Post Falls, Coeur d'Alene, Spokane, North Idaho, home technology, smart devices, Kevin Christian" />
   <meta name="author" content="Kevin Christian, Family Technical Officer" />
-  <meta property="og:title" content="Family Technical Officer — Home Tech Solutions" />
-  <meta property="og:description" content="Your personal technology expert — for your home. Expert setup, programming, and support in Post Falls, Coeur d'Alene, and Spokane." />
+  <meta property="og:title" content="Family Technical Officer · Home &amp; Small Business Technology" />
+  <meta property="og:description" content="Networks, Wi-Fi, security, and smart home for homes and small businesses in North Idaho and Spokane. No markup on equipment, no monthly contracts, and you own everything." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://familytechnicalofficer.com" />
   <link rel="canonical" href="https://familytechnicalofficer.com" />
@@ -54,7 +54,9 @@
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 1.1rem 4%;
+      padding: 1.1rem 2.5%;
+      padding-left: max(2.5%, env(safe-area-inset-left, 0px));
+      padding-right: max(2.5%, env(safe-area-inset-right, 0px));
       background: rgba(10,10,10,0.98);
       border-bottom: 1px solid var(--black-border);
       backdrop-filter: blur(8px);
@@ -70,14 +72,14 @@
       font-size: 0.72rem; letter-spacing: 0.17em; text-transform: uppercase;
       color: var(--white-dim); font-family: var(--sans); font-weight: 300;
     }
-    .nav-links { display: flex; gap: 1.8rem; list-style: none; align-items: center; }
+    .nav-links { display: flex; gap: 1.1rem; list-style: none; align-items: center; }
     .nav-links a {
       color: var(--white-dim); text-decoration: none;
-      font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
-      transition: color 0.2s;
+      font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+      transition: color 0.2s; white-space: nowrap;
     }
     .nav-links a:hover { color: var(--gold); }
-    .nav-right { display: flex; align-items: center; gap: 1.5rem; }
+    .nav-right { display: flex; align-items: center; gap: 1rem; }
     .nav-contact { display: flex; flex-direction: column; align-items: flex-end; gap: 0.12rem; }
     .nav-contact a {
       color: var(--gold); text-decoration: none;
@@ -91,13 +93,30 @@
     .nav-contact a.nav-email:hover { color: var(--gold); }
     .nav-cta {
       background: transparent; border: 1px solid var(--gold-dim); color: var(--gold);
-      padding: 0.48rem 1.1rem; font-family: var(--sans); font-size: 0.68rem;
-      letter-spacing: 0.13em; text-transform: uppercase; cursor: pointer;
+      padding: 0.46rem 0.85rem; font-family: var(--sans); font-size: 0.64rem;
+      letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer;
       text-decoration: none; transition: background 0.2s, color 0.2s, border-color 0.2s; white-space: nowrap;
     }
     .nav-cta:hover { background: var(--gold); color: var(--black); border-color: var(--gold); }
-    .nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-    .nav-burger span { display: block; width: 22px; height: 1px; background: var(--white); }
+    .nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .nav-burger span { display: block; width: 22px; height: 1px; background: var(--white); transition: transform 0.2s, opacity 0.2s; }
+    .nav-burger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .nav-burger.open span:nth-child(2) { opacity: 0; }
+    .nav-burger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+    .nav-mobile-menu {
+      display: none; flex-direction: column;
+      position: absolute; top: 100%; left: 0; right: 0;
+      background: #0A0A0A; border-top: 1px solid var(--black-border);
+      padding: 0.4rem 4%;
+    }
+    .nav-mobile-menu.open { display: flex; }
+    .nav-mobile-menu a {
+      color: var(--white-dim); text-decoration: none; padding: 0.9rem 0;
+      font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;
+      border-bottom: 1px solid var(--black-border);
+    }
+    .nav-mobile-menu a:last-child { border-bottom: none; }
+    .nav-mobile-menu a:hover { color: var(--gold); }
     .nav-mobile-contact { display: none; flex-direction: column; align-items: flex-end; gap: 0.1rem; margin-right: 0.4rem; }
     .nav-mobile-contact a { color: var(--gold); text-decoration: none; font-size: 0.78rem; font-weight: 500; }
     .nav-mobile-contact a.em { font-size: 0.6rem; color: var(--white-dim); }
@@ -196,6 +215,19 @@
     .section-title { font-family: var(--serif); font-size: clamp(1.85rem, 3.2vw, 3rem); font-weight: 300; line-height: 1.1; }
     .section-title em { font-style: italic; color: var(--gold); }
     .gold-rule { width: 44px; height: 1px; background: var(--gold); margin: 1.6rem 0; }
+
+    /* ── TWO WAYS WE HELP ── */
+    #ways { border-top: 1px solid var(--black-border); }
+    .ways-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 3rem; }
+    .ways-card { background: var(--black-card); border: 1px solid var(--black-border); padding: 2.4rem 2.2rem; transition: border-color 0.3s; }
+    .ways-card:hover { border-color: var(--gold-dim); }
+    .ways-card h3 { font-family: var(--serif); font-size: 1.6rem; font-weight: 400; color: var(--gold); margin-bottom: 1rem; }
+    .ways-who { font-size: 0.85rem; color: var(--white-dim); margin-bottom: 1.2rem; line-height: 1.6; }
+    .ways-who strong { color: var(--white); font-weight: 500; }
+    .ways-what { list-style: none; margin-bottom: 1.4rem; }
+    .ways-what li { font-size: 0.85rem; color: var(--white-dim); padding-left: 1.1rem; position: relative; margin-bottom: 0.5rem; line-height: 1.5; }
+    .ways-what li::before { content: ''; width: 4px; height: 4px; background: var(--gold); position: absolute; left: 0; top: 0.5rem; }
+    .ways-line { font-style: italic; color: var(--white); font-size: 0.92rem; margin-bottom: 1.6rem; padding-top: 1rem; border-top: 1px solid var(--black-border); }
 
     /* ── FTO CONCEPT ── */
     #fto-concept {
@@ -304,13 +336,11 @@
 
     /* ── WHY ── */
     #why { border-top: 1px solid var(--black-border); }
-    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 3.2rem; border: 1px solid var(--black-border); }
-    .why-item { padding: 2.6rem 2.8rem; border-right: 1px solid var(--black-border); border-bottom: 1px solid var(--black-border); }
-    .why-item:nth-child(2n) { border-right: none; }
-    .why-item:nth-child(3), .why-item:nth-child(4) { border-bottom: none; }
-    .why-num { font-family: var(--serif); font-size: 2.8rem; font-weight: 300; color: var(--black-border); line-height: 1; margin-bottom: 1.2rem; }
-    .why-item h3 { font-family: var(--serif); font-size: 1.3rem; font-weight: 400; color: var(--white); margin-bottom: 0.6rem; }
-    .why-item p { font-size: 0.85rem; color: var(--white-dim); line-height: 1.75; }
+    .why-strip { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; margin-top: 3.2rem; border: 1px solid var(--black-border); }
+    .why-point { padding: 2rem 1.4rem; border-right: 1px solid var(--black-border); }
+    .why-point:last-child { border-right: none; }
+    .why-point h3 { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--white); margin-bottom: 0.6rem; }
+    .why-point p { font-size: 0.82rem; color: var(--white-dim); line-height: 1.6; }
 
     /* ── PARTNERS ── */
     #partners { background: var(--black-soft); border-top: 1px solid var(--black-border); border-bottom: 1px solid var(--black-border); }
@@ -329,6 +359,9 @@
     .partner-group-header { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white-dim); margin-bottom: 0.4rem; }
     .partner-group-header + .partner-group-header { margin-top: 0.8rem; }
     .partner-trade { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-dim); display: block; margin-bottom: 0.25rem; }
+
+    .biz-fields { display: none; flex-direction: column; gap: 1rem; background: rgba(201,168,76,0.05); border: 1px solid var(--gold-dim); border-radius: 4px; padding: 1rem; }
+    .biz-fields.show { display: flex; }
 
     /* ── CONTACT ── */
     #contact { text-align: center; padding: 7.5rem 4%; position: relative; overflow: hidden; }
@@ -356,6 +389,7 @@
     .footer-links { display: flex; gap: 1.6rem; list-style: none; flex-wrap: wrap; }
     .footer-links a { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white-dim); text-decoration: none; transition: color 0.2s; }
     .footer-links a:hover { color: var(--gold); }
+    .footer-tagline { font-size: 0.7rem; color: var(--gold-dim); letter-spacing: 0.04em; margin-bottom: 0.3rem; }
     .footer-copy { font-size: 0.66rem; color: var(--white-dim); opacity: 0.4; }
 
     /* ── ANIMATIONS ── */
@@ -374,17 +408,30 @@
     @media (max-width: 900px) {
       #hero, .concept-inner, .serve-header, .tech-header, .partners-inner { grid-template-columns: 1fr; gap: 2.5rem; }
       .hero-logo-wrap { display: none; }
+      .ways-grid { grid-template-columns: 1fr; }
       .tech-grid, .serve-panels { grid-template-columns: 1fr 1fr; }
-      .why-grid { grid-template-columns: 1fr; }
-      .why-item { border-right: none; }
-      .why-item:nth-child(3) { border-bottom: 1px solid var(--black-border); }
+      .why-strip { grid-template-columns: 1fr 1fr; }
+      .why-point { border-right: 1px solid var(--black-border); border-bottom: 1px solid var(--black-border); }
+      .why-point:nth-child(2n) { border-right: none; }
+      .why-point:nth-child(5) { grid-column: 1 / -1; border-bottom: none; border-right: none; }
       .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
       .about-photo-col { flex-direction: row; align-items: flex-start; }
       .about-photo { width: 130px; height: 160px; }
       .about-stat-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    /* Nav switches to mobile layout at a wider breakpoint than the rest of the
+       page — 7 links plus the phone/CTA block need more room than 900px before
+       they'd otherwise get clipped or wrap mid-word. */
+    @media (max-width: 1060px) {
       .nav-links, .nav-right { display: none; }
       .nav-burger { display: flex; }
       .nav-mobile-contact { display: flex; }
+    }
+    @media (max-width: 480px) {
+      .nav-logo-text { display: none; }
+      .nav-logo img { height: 40px; }
+      .nav-mobile-contact .em { display: none; }
+      .nav-mobile-contact a { font-size: 0.72rem; }
     }
     @media (max-width: 600px) {
       section { padding: 4.5rem 5%; }
@@ -394,6 +441,9 @@
       .p-step:last-child { border-bottom: none; }
       .about-stat-grid { grid-template-columns: repeat(2, 1fr); }
       .concept-titles { grid-template-columns: 1fr; }
+      .why-strip { grid-template-columns: 1fr; }
+      .why-point { border-right: none !important; border-bottom: 1px solid var(--black-border); grid-column: auto; }
+      .why-point:last-child { border-bottom: none; }
     }
   </style>
 </head>
@@ -405,16 +455,14 @@
     <img src="images/background.jpeg" class="circuit-logo" alt="FTO Logo"  />
     <div class="nav-logo-text">
       <strong>Family Technical Officer</strong>
-      <span>Home Tech Solutions</span>
+      <span>Home &amp; Small Business Technology</span>
     </div>
   </a>
 
   <ul class="nav-links">
-    <li><a href="#technology">Services</a></li>
-    <li><a href="#serve">Who We Serve</a></li>
+    <li><a href="#technology">Home Services</a></li>
+    <li><a href="/small-business/">Small Business</a></li>
     <li><a href="#about">About</a></li>
-    <li><a href="blog/index.html">Blog</a></li>
-    <li><a href="#partners">Partners</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 
@@ -430,7 +478,16 @@
     <a href="tel:+12086402341">208.640.2341</a>
     <a href="mailto:webcontact@familytechnicalofficer.com?subject=FTO%20Web%20Form%20Contact" class="em">webcontact@familytechnicalofficer.com</a>
   </div>
-  <div class="nav-burger" id="burger"><span></span><span></span><span></span></div>
+  <button class="nav-burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <div class="nav-mobile-menu" id="mobileMenu">
+    <a href="#technology">Home Services</a>
+    <a href="/small-business/">Small Business</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -440,15 +497,15 @@
 
     <p class="hero-location">Post Falls · Coeur d'Alene · Spokane</p>
 
-    <h1 class="hero-headline">Your personal<br><em>technology</em><br>expert —<br>for your home.</h1>
+    <h1 class="hero-headline">Technology done right,<br>for your <em>home</em><br>and your <em>business</em>.</h1>
 
     <p class="hero-sub">
-      Hire an expert to design, implement, and support your home technology — backed by 25 years of software quality and engineering experience. From large projects to small fixes, FTO handles it all. No upselling. No call centers. Local, in-person expert help.
+      Hire an expert to design, implement, and support your home and small business technology — backed by 25 years of software quality and engineering experience. From large projects to small fixes, FTO handles it all. No upselling. No call centers. Local, in-person expert help.
     </p>
 
     <div class="hero-actions">
-      <a href="#contact" class="btn-primary">Schedule Free Consultation</a>
-      <a href="#technology" class="btn-ghost">See What I Do</a>
+      <a href="#technology" class="btn-primary">For Your Home</a>
+      <a href="/small-business/" class="btn-primary">For Your Business</a>
     </div>
 
     <div class="hero-services-list">
@@ -462,6 +519,40 @@
   <div class="hero-logo-wrap">
     <div class="hero-logo-glow"></div>
     <img src="images/MainLogo.png" alt="Family Technical Officer" />
+  </div>
+</section>
+
+<!-- TWO WAYS WE HELP -->
+<section id="ways">
+  <p class="section-label">Two Ways We Help</p>
+  <h2 class="section-title">Pick the side<br>that's <em>you.</em></h2>
+  <div class="ways-grid">
+    <div class="ways-card reveal">
+      <h3>For Your Home</h3>
+      <div class="ways-who"><strong>Who:</strong> Homeowners, custom builders, vacation rental owners</div>
+      <ul class="ways-what">
+        <li>Whole-home Wi-Fi and networking</li>
+        <li>Smart home and lighting (Lutron, Home Assistant)</li>
+        <li>Motorized shades and blinds</li>
+        <li>Audio and video</li>
+        <li>Cameras and doorbells</li>
+      </ul>
+      <div class="ways-line">Built for how your family lives.</div>
+      <a href="#technology" class="btn-ghost">See Home Services</a>
+    </div>
+    <div class="ways-card reveal">
+      <h3>For Your Business</h3>
+      <div class="ways-who"><strong>Who:</strong> Offices, practices, studios, shops, and building owners</div>
+      <ul class="ways-what">
+        <li>Secure, separated networks</li>
+        <li>Guest Wi-Fi kept off your computers</li>
+        <li>Office Wi-Fi</li>
+        <li>Cameras</li>
+        <li>Networks for shared buildings</li>
+      </ul>
+      <div class="ways-line">Business-grade security without the IT contract.</div>
+      <a href="/small-business/" class="btn-ghost">See Business Services</a>
+    </div>
   </div>
 </section>
 
@@ -508,7 +599,7 @@
       <h2 class="section-title">Everything<br>connected.<br><em>Everything working.</em></h2>
     </div>
     <p class="tech-intro reveal">
-      I set up, program, and configure the technology in your home — from your network foundation to every connected device. No brand loyalty, no upselling. Just what works best for your home and your life.
+      I design, set up, program, and configure the technology in your home — from your network foundation to every connected device. No brand loyalty, no upselling. Just what works best for your home and your life.
     </p>
   </div>
   <div class="tech-grid">
@@ -676,26 +767,26 @@
   <p class="section-label">Why FTO</p>
   <h2 class="section-title">Not a franchise.<br>Not a call center.<br><em>Just me.</em></h2>
   <div class="gold-rule"></div>
-  <div class="why-grid">
-    <div class="why-item reveal">
-      <div class="why-num">01</div>
-      <h3>No Jargon, No Upselling</h3>
-      <p>Plain English explanations every step of the way. I recommend what genuinely fits your home and your budget — not the most expensive option or the easiest thing to sell.</p>
+  <div class="why-strip">
+    <div class="why-point reveal">
+      <h3>No markup on equipment and devices.</h3>
+      <p>You pay list price, not more.</p>
     </div>
-    <div class="why-item reveal">
-      <div class="why-num">02</div>
-      <h3>One Person, Accountable</h3>
-      <p>You deal with me directly, every time. No handoffs, no "let me check with the team." When something needs attention, you know exactly who to call.</p>
+    <div class="why-point reveal">
+      <h3>You own everything.</h3>
+      <p>Equipment, passwords, and settings are yours.</p>
     </div>
-    <div class="why-item reveal">
-      <div class="why-num">03</div>
-      <h3>Engineering Precision</h3>
-      <p>25 years building and testing complex software systems at Microsoft translates directly to home technology. I plan before I act, document everything, and test thoroughly before I leave.</p>
+    <div class="why-point reveal">
+      <h3>No monthly contracts.</h3>
+      <p>Built right once, not rented.</p>
     </div>
-    <div class="why-item reveal">
-      <div class="why-num">04</div>
-      <h3>Local &amp; In-Person</h3>
-      <p>I show up at your home — in Post Falls, Coeur d'Alene, Spokane, and surrounding areas. No remote-only support, no offshore help desk. Real, in-person service from someone who knows the area.</p>
+    <div class="why-point reveal">
+      <h3>Engineering first.</h3>
+      <p>25 years of software quality engineering behind every design.</p>
+    </div>
+    <div class="why-point reveal">
+      <h3>Same person, every time.</h3>
+      <p>You call me, not a call center.</p>
     </div>
   </div>
 </section>
@@ -782,6 +873,31 @@
     <input type="checkbox" name="botcheck" style="display:none;" />
     <div style="display:flex;flex-direction:column;gap:1rem;">
       <div>
+        <label style="font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--white-dim);display:block;margin-bottom:0.4rem;">Is this for your home or your business? <span style="color:var(--gold)">*</span></label>
+        <select name="inquiry_type" id="inquiryType" required style="width:100%;background:var(--black-card);border:1px solid var(--black-border);color:var(--white);padding:0.8rem 1rem;font-family:var(--sans);font-size:0.9rem;outline:none;cursor:pointer;">
+          <option value="">Select one…</option>
+          <option value="Home">Home</option>
+          <option value="Business">Business</option>
+        </select>
+      </div>
+      <div id="businessFields" class="biz-fields">
+        <div>
+          <label style="font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--white-dim);display:block;margin-bottom:0.4rem;">Business Name <span style="color:var(--gold)">*</span></label>
+          <input type="text" name="business_name" id="businessName" style="width:100%;background:var(--black-card);border:1px solid var(--black-border);color:var(--white);padding:0.8rem 1rem;font-family:var(--sans);font-size:0.9rem;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--gold-dim)'" onblur="this.style.borderColor='var(--black-border)'" />
+        </div>
+        <div>
+          <label style="font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--white-dim);display:block;margin-bottom:0.4rem;">Type of Business</label>
+          <select name="business_type" style="width:100%;background:var(--black-card);border:1px solid var(--black-border);color:var(--white);padding:0.8rem 1rem;font-family:var(--sans);font-size:0.9rem;outline:none;cursor:pointer;">
+            <option value="">Select one…</option>
+            <option value="Health/wellness">Health / wellness</option>
+            <option value="Professional office">Professional office</option>
+            <option value="Retail/salon/studio">Retail / salon / studio</option>
+            <option value="Building owner">Building owner</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      </div>
+      <div>
         <label style="font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--white-dim);display:block;margin-bottom:0.4rem;">Name <span style="color:var(--gold)">*</span></label>
         <input type="text" name="name" required style="width:100%;background:var(--black-card);border:1px solid var(--black-border);color:var(--white);padding:0.8rem 1rem;font-family:var(--sans);font-size:0.9rem;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--gold-dim)'" onblur="this.style.borderColor='var(--black-border)'" />
       </div>
@@ -815,7 +931,8 @@
     <span>Family Technical Officer</span>
   </div>
   <ul class="footer-links">
-    <li><a href="#technology">Services</a></li>
+    <li><a href="#technology">Home Services</a></li>
+    <li><a href="/small-business/">Small Business</a></li>
     <li><a href="#serve">Who We Serve</a></li>
     <li><a href="#process">Process</a></li>
     <li><a href="#why">Why FTO</a></li>
@@ -823,12 +940,49 @@
     <li><a href="blog/index.html">Blog</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <p class="footer-copy">© 2025 Family Technical Officer LLC · Coeur d'Alene, Idaho</p>
+  <div>
+    <p class="footer-tagline">Home &amp; Small Business Technology · Same person, every time.</p>
+    <p class="footer-copy">© 2025 Family Technical Officer LLC · Coeur d'Alene, Idaho</p>
+  </div>
 </footer>
 
 <script>
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50));
+  (function () {
+    const burger = document.getElementById('burger');
+    const menu = document.getElementById('mobileMenu');
+    if (!burger || !menu) return;
 
-  // Set email links at runtime to bypass Cloudflare scraping
-  const e = 'webcontact' + '@' + 'familytechnicalofficer.com'; //replaced
+    const closeMenu = () => {
+      menu.classList.remove('open');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+    };
+    const toggleMenu = () => {
+      const isOpen = menu.classList.toggle('open');
+      burger.classList.toggle('open', isOpen);
+      burger.setAttribute('aria-expanded', String(isOpen));
+    };
+
+    burger.addEventListener('click', (e) => { e.stopPropagation(); toggleMenu(); });
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    document.addEventListener('click', (e) => {
+      if (menu.classList.contains('open') && !menu.contains(e.target) && !burger.contains(e.target)) closeMenu();
+    });
+    window.addEventListener('resize', () => { if (window.innerWidth > 1060) closeMenu(); });
+  })();
+
+  (function () {
+    const inquiryType = document.getElementById('inquiryType');
+    const bizFields = document.getElementById('businessFields');
+    const bizName = document.getElementById('businessName');
+    if (!inquiryType || !bizFields) return;
+
+    inquiryType.addEventListener('change', () => {
+      const isBusiness = inquiryType.value === 'Business';
+      bizFields.classList.toggle('show', isBusiness);
+      if (bizName) bizName.required = isBusiness;
+    });
+  })();
+</script>
+</body>
+</html>

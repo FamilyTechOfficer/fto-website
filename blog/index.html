@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Blog — Family Technical Officer</title>
   <meta name="description" content="Home technology tips, insights, and guides from Kevin Christian — Family Technical Officer." />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -29,7 +29,9 @@
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 1.1rem 4%;
+      padding: 1.1rem 2.5%;
+      padding-left: max(2.5%, env(safe-area-inset-left, 0px));
+      padding-right: max(2.5%, env(safe-area-inset-right, 0px));
       background: rgba(10,10,10,0.98);
       border-bottom: 1px solid var(--black-border);
       backdrop-filter: blur(8px);
@@ -39,15 +41,48 @@
     .nav-logo-text { display: flex; flex-direction: column; }
     .nav-logo-text strong { font-family: var(--serif); font-size: 1.35rem; font-weight: 600; color: var(--gold); line-height: 1; }
     .nav-logo-text span { font-size: 0.72rem; letter-spacing: 0.17em; text-transform: uppercase; color: var(--white-dim); font-family: var(--sans); font-weight: 300; }
-    .nav-links { display: flex; gap: 1.8rem; list-style: none; align-items: center; }
-    .nav-links a { color: var(--white-dim); text-decoration: none; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links { display: flex; gap: 1.1rem; list-style: none; align-items: center; }
+    .nav-links a { color: var(--white-dim); text-decoration: none; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; white-space: nowrap; }
     .nav-links a:hover, .nav-links a.active { color: var(--gold); }
-    .nav-right { display: flex; align-items: center; gap: 1.5rem; }
+    .nav-right { display: flex; align-items: center; gap: 1rem; }
     .nav-contact { display: flex; flex-direction: column; align-items: flex-end; gap: 0.12rem; }
     .nav-contact a { color: var(--gold); text-decoration: none; font-size: 0.8rem; font-weight: 500; transition: color 0.2s; }
     .nav-contact a.nav-email { font-size: 0.64rem; color: var(--white-dim); font-weight: 300; }
-    .nav-cta { background: transparent; border: 1px solid var(--gold-dim); color: var(--gold); padding: 0.48rem 1.1rem; font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.13em; text-transform: uppercase; text-decoration: none; transition: background 0.2s, color 0.2s; white-space: nowrap; }
+    .nav-cta { background: transparent; border: 1px solid var(--gold-dim); color: var(--gold); padding: 0.46rem 0.85rem; font-family: var(--sans); font-size: 0.64rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: background 0.2s, color 0.2s; white-space: nowrap; }
     .nav-cta:hover { background: var(--gold); color: var(--black); }
+    .nav-mobile-contact { display: none; flex-direction: column; align-items: flex-end; gap: 0.1rem; margin-right: 0.4rem; }
+    .nav-mobile-contact a { color: var(--gold); text-decoration: none; font-size: 0.78rem; font-weight: 500; }
+    .nav-mobile-contact a.em { font-size: 0.6rem; color: var(--white-dim); }
+    .nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .nav-burger span { display: block; width: 22px; height: 1px; background: var(--white); transition: transform 0.2s, opacity 0.2s; }
+    .nav-burger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .nav-burger.open span:nth-child(2) { opacity: 0; }
+    .nav-burger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+    .nav-mobile-menu {
+      display: none; flex-direction: column;
+      position: absolute; top: 100%; left: 0; right: 0;
+      background: #0A0A0A; border-top: 1px solid var(--black-border);
+      padding: 0.4rem 4%;
+    }
+    .nav-mobile-menu.open { display: flex; }
+    .nav-mobile-menu a {
+      color: var(--white-dim); text-decoration: none; padding: 0.9rem 0;
+      font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;
+      border-bottom: 1px solid var(--black-border);
+    }
+    .nav-mobile-menu a:last-child { border-bottom: none; }
+    .nav-mobile-menu a:hover, .nav-mobile-menu a.active { color: var(--gold); }
+    @media (max-width: 1060px) {
+      .nav-links, .nav-right { display: none; }
+      .nav-burger { display: flex; }
+      .nav-mobile-contact { display: flex; }
+    }
+    @media (max-width: 480px) {
+      .nav-logo-text { display: none; }
+      .nav-logo img { height: 40px; }
+      .nav-mobile-contact .em { display: none; }
+      .nav-mobile-contact a { font-size: 0.72rem; }
+    }
 
     .blog-header {
       padding: 9rem 4% 4rem;
@@ -101,6 +136,7 @@
     .footer-logo { display: flex; align-items: center; gap: 0.65rem; }
     .footer-logo img { height: 34px; width: auto; mix-blend-mode: lighten; }
     .footer-logo span { font-family: var(--serif); font-size: 0.9rem; color: var(--gold); font-weight: 600; }
+    .footer-tagline { font-size: 0.7rem; color: var(--gold-dim); letter-spacing: 0.04em; margin-bottom: 0.3rem; }
     .footer-copy { font-size: 0.66rem; color: var(--white-dim); opacity: 0.4; }
 
     @media (max-width: 900px) { .blog-grid { grid-template-columns: 1fr 1fr; } }
@@ -114,15 +150,14 @@
     <img src="/images/background.jpeg" alt="FTO" />
     <div class="nav-logo-text">
       <strong>Family Technical Officer</strong>
-      <span>Home Tech Solutions</span>
+      <span>Home &amp; Small Business Technology</span>
     </div>
   </a>
   <ul class="nav-links">
-    <li><a href="/#technology">Services</a></li>
-    <li><a href="/#serve">Who We Serve</a></li>
+    <li><a href="/#technology">Home Services</a></li>
+    <li><a href="/small-business/">Small Business</a></li>
     <li><a href="/#about">About</a></li>
-    <li><a href="index.html" class="active">Blog</a></li>
-    <li><a href="/#partners">Partners</a></li>
+    <li><a href="/#contact">Contact</a></li>
   </ul>
   <div class="nav-right">
     <div class="nav-contact">
@@ -130,6 +165,21 @@
       <a href="/#contact" class="nav-email">Contact Form</a>
     </div>
     <a href="/#contact" class="nav-cta">Free Consult</a>
+  </div>
+
+  <div class="nav-mobile-contact" id="mobileContact">
+    <a href="tel:+12086402341">208.640.2341</a>
+    <a href="mailto:webcontact@familytechnicalofficer.com?subject=FTO%20Web%20Form%20Contact" class="em">webcontact@familytechnicalofficer.com</a>
+  </div>
+  <button class="nav-burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <div class="nav-mobile-menu" id="mobileMenu">
+    <a href="/#technology">Home Services</a>
+    <a href="/small-business/">Small Business</a>
+    <a href="/#about">About</a>
+    <a href="/#contact">Contact</a>
   </div>
 </nav>
 
@@ -157,8 +207,36 @@
     <img src="/images/background.jpeg" alt="FTO" />
     <span>Family Technical Officer</span>
   </div>
-  <p class="footer-copy">© 2025 Family Technical Officer LLC · Coeur d'Alene, Idaho</p>
+  <div>
+    <p class="footer-tagline">Home &amp; Small Business Technology · Same person, every time.</p>
+    <p class="footer-copy">© 2025 Family Technical Officer LLC · Coeur d'Alene, Idaho</p>
+  </div>
 </footer>
 
+<script>
+  (function () {
+    const burger = document.getElementById('burger');
+    const menu = document.getElementById('mobileMenu');
+    if (!burger || !menu) return;
+
+    const closeMenu = () => {
+      menu.classList.remove('open');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+    };
+    const toggleMenu = () => {
+      const isOpen = menu.classList.toggle('open');
+      burger.classList.toggle('open', isOpen);
+      burger.setAttribute('aria-expanded', String(isOpen));
+    };
+
+    burger.addEventListener('click', (e) => { e.stopPropagation(); toggleMenu(); });
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    document.addEventListener('click', (e) => {
+      if (menu.classList.contains('open') && !menu.contains(e.target) && !burger.contains(e.target)) closeMenu();
+    });
+    window.addEventListener('resize', () => { if (window.innerWidth > 1060) closeMenu(); });
+  })();
+</script>
 </body>
 </html>

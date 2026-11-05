@@ -1,0 +1,272 @@
+<title>FTO Small Business Page</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+  /* Layout: single reading column (~680px) like a letter from Kevin; only the before/after diagram runs wider. FTO proposal palette. */
+  :root {
+    --bg: #F5F0E8;
+    --surface: #FBF8F2;
+    --ink: #1F1F1F;
+    --muted: #5B564C;
+    --line: #D9CFBD;
+    --gold: #9A7B2F;
+    --blue: #1F5FA8;
+    --good: #3E7B4B;
+    --bad: #A33A2B;
+    --net-staff: #2C5B8C;
+    --net-guest: #3E7B4B;
+    --net-device: #B0552E;
+    --net-tenant: #6A4F98;
+    --on-net: #FFFFFF;
+    --fw-bg: #F2EAD6;
+    --chip: #FFFFFF;
+    --font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1B1915; --surface: #24211C; --ink: #EDE6D8; --muted: #B3AA99; --line: #3D372E;
+      --gold: #D2AE5C; --blue: #86ADE0; --good: #7DBE8A; --bad: #E08573;
+      --net-staff: #33618F; --net-guest: #3F7A4C; --net-device: #A65430; --net-tenant: #6B5299;
+      --on-net: #FFFFFF; --fw-bg: #2E2920; --chip: #2B2822; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1B1915; --surface: #24211C; --ink: #EDE6D8; --muted: #B3AA99; --line: #3D372E;
+    --gold: #D2AE5C; --blue: #86ADE0; --good: #7DBE8A; --bad: #E08573;
+    --net-staff: #33618F; --net-guest: #3F7A4C; --net-device: #A65430; --net-tenant: #6B5299;
+    --on-net: #FFFFFF; --fw-bg: #2E2920; --chip: #2B2822; color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--ink); font-family: var(--font);
+    font-size: 17px; line-height: 1.6;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  .wrap { max-width: 680px; margin: 0 auto; }
+  .wide { max-width: 900px; margin: 0 auto; }
+
+  header.site { max-width: 900px; margin: 0 auto; padding-block: 22px 18px; border-bottom: 1px solid var(--line);
+    display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 6px 20px; }
+  .brand { font-weight: 700; font-size: 20px; color: var(--gold); }
+  .brand small { display: block; font-weight: 400; font-size: 13px; color: var(--muted); letter-spacing: .02em; }
+  header.site nav { display: flex; flex-wrap: wrap; gap: 4px 18px; font-size: 14px; }
+  header.site nav a { color: var(--muted); text-decoration: none; }
+  header.site nav a[aria-current] { color: var(--ink); font-weight: 700; }
+
+  section { padding-block: 44px 8px; }
+  h1 { font-size: clamp(30px, 5vw, 42px); line-height: 1.12; margin: 0 0 22px; text-wrap: balance; letter-spacing: -0.01em; }
+  h2 { font-size: 24px; line-height: 1.25; margin: 0 0 14px; text-wrap: balance; }
+  p { margin: 0 0 16px; }
+  .lead { font-size: 19px; }
+  .support { font-size: 19px; font-weight: 700; color: var(--gold); }
+  .btn { display: inline-block; margin-top: 8px; background: var(--ink); color: var(--bg); text-decoration: none;
+    padding: 12px 20px; border-radius: 4px; font-weight: 700; font-size: 15px; }
+  .btn:focus-visible, a:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+
+  ul.threats { list-style: none; padding: 0; margin: 4px 0 18px; display: grid; gap: 12px; }
+  ul.threats li { padding-left: 18px; position: relative; }
+  ul.threats li::before { content: ""; position: absolute; left: 0; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
+  .note { color: var(--muted); }
+
+  /* Options: light table, not cards */
+  .opts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--line); margin-top: 8px; }
+  .opt { padding: 18px 18px 14px; border-bottom: 1px solid var(--line); min-width: 0; }
+  .opt + .opt { border-left: 1px solid var(--line); }
+  .opt.fto { background: var(--surface); box-shadow: inset 0 3px 0 var(--gold); }
+  .opt h3 { margin: 0 0 4px; font-size: 17px; }
+  .opt .desc { font-size: 14px; color: var(--muted); margin: 0 0 10px; }
+  .opt ul { list-style: none; padding: 0; margin: 0 0 10px; font-size: 15px; line-height: 1.45; display: grid; gap: 6px; }
+  .opt li { padding-left: 20px; position: relative; }
+  .opt li::before { position: absolute; left: 0; font-weight: 700; }
+  .opt li.y::before { content: "\2713"; color: var(--good); }
+  .opt li.n::before { content: "\2715"; color: var(--bad); }
+  .opt .verdict { font-size: 14px; font-style: italic; color: var(--muted); margin: 0; }
+  .opt.fto .verdict { font-style: normal; font-weight: 700; color: var(--gold); }
+
+  /* Diagram */
+  .ba { display: grid; grid-template-columns: minmax(0,1fr) auto minmax(0,1fr); gap: 18px; align-items: center;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 22px; }
+  .ba .lbl { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+  .pool { border: 1.5px dashed var(--bad); border-radius: 8px; padding: 12px 8px; text-align: center; }
+  .chip { display: inline-block; font-size: 13px; background: var(--chip); border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px; margin: 3px; }
+  .cap { text-align: center; font-size: 14px; font-weight: 700; margin-top: 10px; }
+  .cap.bad { color: var(--bad); } .cap.good { color: var(--good); }
+  .arrow { font-size: 28px; color: var(--gold); }
+  .fw { background: var(--fw-bg); border: 1px solid var(--gold); border-radius: 6px; text-align: center; font-size: 14px; font-weight: 700; padding: 6px; margin-bottom: 8px; }
+  .fw span { font-weight: 400; color: var(--muted); }
+  .nets { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 6px; }
+  .net { color: var(--on-net); border-radius: 6px; text-align: center; padding: 9px 4px; font-size: 14px; font-weight: 700; line-height: 1.25; }
+  .net span { display: block; font-weight: 400; font-size: 12px; opacity: .92; margin-top: 2px; }
+  .ba-desc { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+  dl.gets { margin: 0; display: grid; gap: 14px; }
+  dl.gets dt { font-weight: 700; }
+  dl.gets dd { margin: 0; color: var(--muted); }
+
+  .health { border-left: 3px solid var(--blue); padding: 4px 0 4px 16px; margin: 18px 0; }
+
+  ol.steps { list-style: none; counter-reset: s; padding: 0; margin: 0; display: grid; gap: 12px; }
+  ol.steps li { counter-increment: s; padding-left: 38px; position: relative; }
+  ol.steps li::before { content: counter(s); position: absolute; left: 0; top: 1px; width: 26px; height: 26px; border-radius: 50%;
+    background: var(--blue); color: var(--bg); font-size: 14px; font-weight: 700; text-align: center; line-height: 26px; }
+
+  .signoff { border-top: 1px solid var(--line); margin-top: 20px; padding-top: 28px; }
+  .contact { display: flex; flex-wrap: wrap; gap: 6px 28px; margin-top: 6px; }
+  .contact a { color: var(--blue); font-weight: 700; text-decoration: none; overflow-wrap: anywhere; }
+  .sig { font-weight: 700; margin-top: 20px; }
+  .sig span { display: block; font-weight: 400; color: var(--muted); font-size: 15px; }
+
+  footer { max-width: 900px; margin: 56px auto 0; padding-block: 16px 28px; border-top: 1px solid var(--line);
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 20px; font-size: 13px; color: var(--muted); }
+  footer b { color: var(--ink); }
+
+  @media (max-width: 720px) {
+    .opts { grid-template-columns: 1fr; }
+    .opt + .opt { border-left: 0; }
+    .ba { grid-template-columns: 1fr; padding: 16px; }
+    .arrow { transform: rotate(90deg); justify-self: center; }
+    .nets { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  }
+</style>
+
+<header class="site">
+  <div class="brand">Family Technical Officer<small>Home &amp; Small Business Technology</small></div>
+  <nav aria-label="Main">
+    <a href="#">Home</a><a href="#">Home Services</a><a href="#" aria-current="page">Small Business</a><a href="#">About</a><a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <section class="wrap">
+    <h1>Your business runs on information. Your network should protect it.</h1>
+    <p class="lead">Customer records, payments, passwords, and files all travel over your network every day. In most small businesses, everything shares one network: staff computers, the card reader, the cameras, and every customer on the Wi-Fi. That's convenient, but it isn't secure. The fix is separate networks for your business, your guests, and your devices, set up right and handed over to you.</p>
+    <p class="support">If anything goes wrong, call me. No contract, no monthly fee.</p>
+    <a class="btn" href="#contact">Set up a walkthrough</a>
+  </section>
+
+  <section class="wrap">
+    <h2>What a secure network protects you from</h2>
+    <p>Most attacks on small businesses aren't aimed at you specifically. They're automated, looking for anything easy. A secure network makes you a harder target and limits the damage if something does get through.</p>
+    <ul class="threats">
+      <li><b>Viruses and ransomware.</b> If one computer gets infected, it can't spread to the rest of your office.</li>
+      <li><b>Hacked cameras and gadgets.</b> Cameras and smart devices are common targets. On their own network, a hacked device can't reach your computers or files.</li>
+      <li><b>Strangers on your Wi-Fi.</b> Customers and visitors get internet access, and nothing else.</li>
+      <li><b>Your payment and customer information.</b> The devices that handle money and records are kept separate from everything else.</li>
+    </ul>
+    <p class="note">No network can stop every threat. Backups, updates, and good passwords still matter. But separating your network is one of the simplest, most effective steps a small business can take.</p>
+  </section>
+
+  <section class="wide">
+    <div class="wrap" style="margin:0 auto"><h2>Your three options</h2><p>Most small businesses end up with one of the first two.</p></div>
+    <div class="opts">
+      <div class="opt">
+        <h3>The shared router</h3>
+        <p class="desc">The box from your internet provider.</p>
+        <ul>
+          <li class="y">Already installed</li>
+          <li class="n">Often a monthly rental fee</li>
+          <li class="n">Staff, devices, and tenants all share one network</li>
+          <li class="n">A problem on one device can reach the others</li>
+        </ul>
+        <p class="verdict">Convenient, but wide open.</p>
+      </div>
+      <div class="opt">
+        <h3>The IT contract</h3>
+        <p class="desc">A managed IT company with a monthly fee.</p>
+        <ul>
+          <li class="y">Secure setup</li>
+          <li class="y">Covers your computers and email, not just the network</li>
+          <li class="n">A monthly fee for as long as you stay</li>
+          <li class="n">Some lock you in for a year or more</li>
+        </ul>
+        <p class="verdict">Thorough, but you rent it.</p>
+      </div>
+      <div class="opt fto">
+        <h3>The FTO way</h3>
+        <p class="desc">A business-grade network, designed and installed once, then handed to you.</p>
+        <ul>
+          <li class="y">Staff, guests, and devices kept apart</li>
+          <li class="y">No monthly fees to us, no contract</li>
+          <li class="y">You own the equipment and passwords</li>
+          <li class="y">Same person to call, every time</li>
+        </ul>
+        <p class="verdict">Secure, and it's yours.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wide">
+    <div class="ba" role="img" aria-label="Before: all devices on one shared network. After: staff, guests, devices, and tenants on separate networks behind a firewall.">
+      <div>
+        <div class="lbl">Today: one shared network</div>
+        <div class="pool">
+          <span class="chip">Office computers</span><span class="chip">Guest phones</span><span class="chip">Card reader</span><span class="chip">Cameras</span><span class="chip">Printer</span><span class="chip">Tenant laptop</span><span class="chip">Smart TV</span>
+        </div>
+        <div class="cap bad">Everything shares one network.</div>
+      </div>
+      <div class="arrow" aria-hidden="true">&#10140;</div>
+      <div>
+        <div class="lbl">After: separate networks</div>
+        <div class="fw">Business-grade firewall <span>· keeps each network apart</span></div>
+        <div class="nets">
+          <div class="net" style="background:var(--net-staff)">Staff<span>computers, printer</span></div>
+          <div class="net" style="background:var(--net-guest)">Guests<span>Wi-Fi only</span></div>
+          <div class="net" style="background:var(--net-device)">Devices<span>card reader, cameras</span></div>
+          <div class="net" style="background:var(--net-tenant)">Tenants<span>each on their own</span></div>
+        </div>
+        <div class="cap good">Each network reaches the internet, not each other.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <h2>What you get</h2>
+    <dl class="gets">
+      <div><dt>Separate networks</dt><dd>Staff, guests, payments, and cameras each walled off.</dd></div>
+      <div><dt>Guest Wi-Fi that can't see your computers</dt><dd>Customers get internet. Nothing else.</dd></div>
+      <div><dt>Strong, reliable Wi-Fi</dt><dd>Business-grade equipment, placed where you need it.</dd></div>
+      <div><dt>A map of your network</dt><dd>A simple diagram and equipment list for your records.</dd></div>
+      <div><dt>Locked-down admin access</dt><dd>No default passwords. You hold the keys.</dd></div>
+      <div><dt>Equipment at cost</dt><dd>No markup on hardware. No licenses or monthly fees.</dd></div>
+    </dl>
+  </section>
+
+  <section class="wrap">
+    <h2>Who it's for</h2>
+    <p>Offices, practices, studios, and shops with a handful of staff, customers on the Wi-Fi, and information worth protecting. That includes health and wellness practices, professional offices like accountants and attorneys, salons and retail shops with card readers, and building owners who share internet with tenants.</p>
+    <p class="health"><b>Health and wellness practices:</b> each practice runs on its own private network, and you get a network map and equipment list to support your patient-privacy obligations.</p>
+  </section>
+
+  <section class="wrap">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li><b>Walkthrough.</b> I look at your space and what you use today.</li>
+      <li><b>Clear proposal.</b> Equipment and pricing, up front.</li>
+      <li><b>Install and setup.</b> Usually uses the wiring you already have.</li>
+      <li><b>Handoff.</b> Your map, your passwords, your equipment.</li>
+    </ol>
+  </section>
+
+  <section class="wrap">
+    <h2>The equipment</h2>
+    <p>I build networks on UniFi, business-grade gear used in offices and schools. There's no monthly license to run it, so once it's installed, it's yours.</p>
+  </section>
+
+  <section class="wrap" id="contact">
+    <div class="signoff">
+      <h2>Not sure what you have today? Let's take a look.</h2>
+      <p>Call or email and I'll set up a time to walk through your space.</p>
+      <div class="contact">
+        <a href="tel:2086402341">208.640.2341</a>
+        <a href="mailto:webcontact@familytechnicalofficer.com">webcontact@familytechnicalofficer.com</a>
+      </div>
+      <div class="sig">Kevin Christian<span>Family Technical Officer · Post Falls · Coeur d'Alene · Spokane</span></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <b>Same person, every time.</b>
+  <span>Home &amp; Small Business Technology · familytechnicalofficer.com</span>
+</footer>
